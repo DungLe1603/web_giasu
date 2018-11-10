@@ -44,7 +44,7 @@
 					<a href="#">DANH CHO GIA SƯ</a>
 					<ul class="dropdown-menu">
 						<li id="menu-item-1593" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1593">
-							<a href="{!! asset('/baidang') !!}">SUẤT DẠY</a></li>	
+							<a href="{!! asset('/baidang') !!}">XEM SUẤT DẠY</a></li>	
 						<li id="menu-item-1571" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1571">
 							<a href="{!! asset('/dangkygiasu') !!}">ĐĂNG KÝ LÀM GIA SƯ</a></li>
 					</ul>
@@ -53,18 +53,13 @@
 					<a href="#">DANH CHO PHU HUYNH/ HOC SINH</a>
 					<ul class="dropdown-menu">
 						<li id="menu-item-1572" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1572">
-							<a href="{!! asset('/giasu') !!}">GIA SƯ</a></li>
+							<a href="{!! asset('/giasu') !!}">XEM GIA SƯ</a></li>
 						<li id="menu-item-1592" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1593">
 							<a href="{!! asset('/dangbaitimgiasu') !!}">ĐĂNG BÀI TÌM GIA SƯ</a></li>
 					</ul>
 				</li>				
 				<li id="menu-item-1573" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-20">
 					<a href="{!! asset('/gioithieu') !!}">GIỚI THIỆU<b class="caret"></b></a>
-					{{-- <ul class="dropdown-menu">
-						<li id="menu-item-1572" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1572"><a href="https://trungtamgiasudanang.vn/dang-ky-tim-gia-su/">ĐĂNG KÝ TÌM GIA SƯ</a></li>
-						<li id="menu-item-1571" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1571"><a href="https://trungtamgiasudanang.vn/sinh-vien-dang-ky-gia-su/">SINH VIÊN ĐĂNG KÝ LÀM GIA SƯ</a></li>
-						<li id="menu-item-1570" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1570"><a href="https://trungtamgiasudanang.vn/giao-vien-dang-ky-gia-su/">GIÁO VIÊN ĐĂNG KÝ LÀM GIA SƯ</a></li>
-					</ul> --}}
 				</li>
 				<li id="menu-item-20" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-20">
 					<a href="{!! asset('/lienhe') !!}">LIÊN HỆ</a></li>
