@@ -1,0 +1,131 @@
+/*
+Theme Name:   Appointment Green
+ Description:  A Business theme which is ideal for creating a corporate / business website. Appointment Green theme is a child theme of appointment which has several sections such as slider, services , widget area, etc etc. The green of this theme makes your site looks clean and elegant. Appointment Green theme comes with various locales.
+ Author:       webriti
+ Author URI:   http://www.webriti.com
+ Theme URI:    http://webriti.com/appointment-green-child-version-details-page-1/
+ Template:     appointment
+ Version:      1.0.6
+ Tags: 		   full-width-template, threaded-comments, two-columns,  right-sidebar, sticky-post, custom-menu, translation-ready, blog, portfolio, footer-widgets, featured-images, featured-image-header, custom-header
+ Text Domain: appointment-green
+*/
+.page-title-section .overlay{padding: 13px 0 10px !important;}
+.footer-copyright {padding: 0 !important;}
+.footer-widget-title{margin: 0 0 25px 0 !important;font-size: 22px !important;}
+.footer-section{padding: 20px 0 0 !important;}
+.footer-widget-column {margin-bottom: 20px !important;}
+.page-builder {margin: 30px 0 0 !important;}
+.footer-section, .appointment-search{margin: 0 !important;}
+.sidebar-widget{margin-bottom: 40px !important;}
+.fa-home:before{font-size: 19px;}
+.blog-lg-area-left > .media > .media-body, .blog-lg-area-right .media > .media-body, .blog-lg-area-full .media > .media-body{border-bottom: 0px solid #eeeeee !important;}
+.blog-lg-area-left{padding: 0px !important;}
+.post-meta-key {font-weight: bold;}
+ul li, ol li {
+    font-family: 'Open Sans';
+    font-size: 15px;
+    font-weight: 400;
+}
+table {
+    font-family: 'Open Sans';
+    font-size: 15px;
+    font-weight: 400;
+}
+.top-header-widget {
+    background-color: #0073aa !important;
+    padding: 5px 0;
+    border-bottom: 3px solid #006191;
+    font-size: 15px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+}
+.top-header-sidebar, .top-header-sidebar a,.top-header-sidebar a:link, .top-header-sidebar a:visited, .top-header-sidebar a:link:active,.top-header-sidebar a:visited:active{
+    color: #e4ecd4;
+}
+#top-header-sidebar-right{
+    text-align: right;
+}
+.page-title-section {
+    background-color: #f6f7f9 !important;
+}
+.page-title-section .overlay {
+    padding: 8px 0 5px !important;
+}
+.page-title h1 {
+    font-size: 25px;
+    color: #727272 !important;
+    margin: 4px 0 0px !important;
+}
+.page-breadcrumb > li {
+    color: #727272 !important;
+}
+.page-breadcrumb > li a, .page-breadcrumb > li a:hover, .page-breadcrumb > li a:focus, .page-title a, .page-title a:hover, .page-title a:focus {
+    color: #0073aa !important;
+}
+.service-area a {
+    color: #0073aa !important;
+}
+@media screen and (max-width: 767px) {
+    .top-header{
+        text-align: center;
+    }
+    #top-header-sidebar-left {
+        padding-bottom: 3px;
+    }
+    #top-header-sidebar-right {
+        text-align: center;
+    }
+    .page-breadcrumb {
+        padding: 10px 4px !important;
+    }
+    .thumbnail-nguoigiupviec {
+        border-width: 0px !important;
+    }
+    .thumbnail-nguoigiupviec img{
+        border: 1px solid #ddd;
+        padding: 4px;
+    }
+}
+@media screen and (max-width: 480px) {
+    .top-header:first-child {
+        display: none;
+    }
+    #top-header-sidebar-right {
+        padding-top: 3px;
+    }
+    /*HomePage => Nguoi giup viec => hinh anh canh giua*/
+    .blog-sm-box {
+        width: 100% !important;
+        margin-bottom: 20px !important;
+    }
+    .blog-sm-box img{
+        margin: auto !important;
+        width: 220px !important;
+    }
+    /*HomePage => Nguoi giup viec => hinh anh canh giua - end*/
+}
+@media only screen and (max-width: 1066px) {
+    .slide-text-bg2 {
+        display: none;
+    }
+}
+@media only screen and (max-width: 991px) { /* Homepage => canh le icon dia chi */
+    .diachihomepage {
+        width: 38px;
+    }
+    .sidebar-section-right {
+        display: none !important;
+    }
+}
+@media only screen and (max-width: 959px) and (min-width: 768px) {
+    .page-breadcrumb {
+        text-align: right !important;
+    }
+}
+@media only screen and (max-width: 767px) and (min-width: 426px) {
+    .thumbnail-dichvu {
+        width: 70% !important;
+        margin-left: 15% !important;
+        margin-right: 15% !important;
+    }
+}
