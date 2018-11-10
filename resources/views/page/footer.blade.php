@@ -4,22 +4,27 @@
 			<div class="col-md-3 col-sm-6 footer-widget-column">
 				<h3 class="footer-widget-title">Bạn cần tìm gia sư</h3>			
 				<div class="textwidget">
-					<p>Nhấp vào <a href="https://trungtamgiasudanang.vn/dang-ky-tim-gia-su/">[Đăng ký tìm gia sư]</a></p>
+					{{-- {!! asset('template/logo-trung-tam-gia-su-da-nang.jpg') !!} --}}
+					<p>Nhấp vào <a href="{!! asset('/dangbaitimgiasu')!!}">[Đăng bài tìm gia sư]</a></p>
 				</div>
 			</div>
 			<div class="col-md-3 col-sm-6 footer-widget-column">
 				<h3 class="footer-widget-title">Các suất dạy mới</h3>			
 				<div class="textwidget">
-					<p>Sinh viên, Giáo viên đăng ký nhận các suất dạy mới, nhấp vào <a href="https://trungtamgiasudanang.vn/cac-suat-day-moi/">[Các suất dạy mới]</a>.</p>
+					<p>Sinh viên, Giáo viên đăng ký nhận các suất dạy mới, nhấp vào
+					 <a href="{!! asset('/baidang')!!}/">[Các suất dạy mới]</a>.</p>
 				</div>
 			</div>
 			<div class="col-md-3 col-sm-6 footer-widget-column">
 				<h3 class="footer-widget-title">Liên kết</h3>
 				<div class="menu-menu-footer-container">
 					<ul id="menu-menu-footer" class="menu">
-						<li id="menu-item-1641" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-1641 active"><a href="https://trungtamgiasudanang.vn/">Trung Tâm Gia Sư Đà Nẵng</a></li>
-						<li id="menu-item-4179" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4179"><a href="https://trungtamgiasudanang.vn/dang-ky-tim-gia-su/">Đăng Ký Tìm Gia Sư</a></li>
-						<li id="menu-item-1669" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1669"><a href="https://trungtamgiasudanang.vn/category/gia-su/">Danh Sách Gia Sư</a></li>
+						<li id="menu-item-1641" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-1641 active">
+							<a href="{!! asset('/')!!}">Trung Tâm Gia Sư Đà Nẵng</a></li>
+						<li id="menu-item-4179" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4179">
+							<a href="{!! asset('dangbaitimgiasu')!!}">Đăng Bài Tìm Gia Sư</a></li>
+						<li id="menu-item-1669" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1669">
+							<a href="{!! asset('giasu')!!}">Danh Sách Gia Sư</a></li>
 					</ul>
 				</div>
 			</div>
@@ -27,8 +32,8 @@
 				<h3 class="footer-widget-title">Liên hệ</h3>			
 				<div class="textwidget">
 					<p><i class="fa fa-phone" aria-hidden="true"></i> 0905999437 | 0977195595<br>
-						<i class="fa fa-envelope" aria-hidden="true"></i> ttgsdn.vn@gmail.com<br>
-						<i class="fa fa-globe" aria-hidden="true"></i> trungtamgiasudanang.vn</p>
+						<i class="fa fa-envelope" aria-hidden="true"></i> ttgsdn.udn.vn@gmail.com<br>
+						<i class="fa fa-globe" aria-hidden="true"></i> trungtamgiasudanang.udn.vn</p>
 				</div>
 			</div>	
 			<div class="clearfix"></div>

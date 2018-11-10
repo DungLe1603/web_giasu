@@ -6,11 +6,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-6 col-sm-6">
-											<div class="page-title"><h1>LIÊN HỆ</h1></div>
-										</div>
-				<div class="col-md-6 col-sm-6">
-					<ul class="page-breadcrumb">
-						<li><a class="fa fa-home fa-2" href="https://trungtamgiasudanang.vn/"></a> <i class="fa fa-angle-right" style="margin: 0 5px;"></i></li><li class="active">LIÊN HỆ</li>					</ul>
+					<div class="page-title"><h1>LIÊN HỆ</h1></div>
 				</div>
 			</div>
 		</div>	
@@ -22,20 +18,20 @@
 		<div class="row">
 			<!-- Blog Area -->
 			<div class="col-md-12">
-						<div class="blog-lg-area-left">
+				<div class="blog-lg-area-left">
 					
-			<p><strong>TRUNG TÂM GIA SƯ&nbsp;ĐÀ NẴNG</strong><br>
-Địa chỉ: 356/89/45 Hoàng Diệu, Quận Hải Châu, TP Đà Nẵng<br>
-Điện thoại: <a href="tel:0905999437">0905 999 437</a>&nbsp;|&nbsp;<a href="tel:0977195595">0977 195 595</a><br>
-Email: <a href="mailto:ttgsdn.vn@gmail.com">ttgsdn.vn@gmail.com</a><br>
-Website: <a href="https://trungtamgiasudanang.vn/">trungtamgiasudanang.vn</a><br>
-Facebook: <a href="https://facebook.com/trungtamgiasudanang" target="_blank" rel="noopener noreferrer">trungtamgiasudanang</a></p>
-<p>
-	Đây là vị trí bản đồ (mà chưa chèn)
-	<iframe style="border: 0;" src="./template/embed.html" width="600" height="450" frameborder="0" allowfullscreen="allowfullscreen"></iframe></p>
-							</div>
-						
-								</div>
+					<p><strong>TRUNG TÂM GIA SƯ&nbsp;ĐÀ NẴNG</strong><br>
+						Địa chỉ:  54 Nguyễn Lương Bằng, Hòa Khánh Bắc, Liên Chiểu, TP Đà Nẵng<br>
+						Điện thoại: <a href="tel:0987654321">0972193396</a> | <a href="tel:0987654321">0987654321</a>&nbsp;(nhấp vào để gọi)<br>
+						Email: <a href="#">ttgsdn.udn.vn@gmail.com</a><br>
+						Website: <a href="#">trungtamgiasudanang.udn.vn</a><br>
+						Facebook:&nbsp;<a href="https://facebook.com/trungtamgiasudanang.udn" target="_blank" rel="noopener noreferrer">trungtamgiasudanang</a><br>
+					</p>
+					<p>
+						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3833.8397919177078!2d108.1477255142322!3d16.073801288878087!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x314218d68e8ccb03%3A0x64dc2cb3e38bbdaf!2zNTQgTmd1eeG7hW4gTMawxqFuZyBC4bqxbmcsIEhvw6AgS2jDoW5oIELhuq9jLCBMacOqbiBDaGnhu4N1LCDEkMOgIE7hurVuZyA1NTAwMDAsIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1541865661547" width="1100" height="500" frameborder="0" style="border:0" allowfullscreen></iframe>
+					</p>
+				</div>						
+			</div>
 			<!-- /Blog Area -->	
 		</div>
 	</div>
