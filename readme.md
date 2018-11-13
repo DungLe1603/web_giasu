@@ -1,7 +1,7 @@
 # Giasudanang
 
 ## How to get started
-we will have 4 main branch
+We will have 4 main branches
 - Master: for product
 - Develop: for coding -> we work in this branch
 - Release
