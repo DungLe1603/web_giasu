@@ -44,27 +44,27 @@
 					<a href="#">DANH CHO GIA SƯ</a>
 					<ul class="dropdown-menu">
 						<li id="menu-item-1593" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1593">
-							<a href="{!! asset('/baidang') !!}">XEM SUẤT DẠY</a></li>	
+							<a href="{!! asset('/post') !!}">XEM SUẤT DẠY</a></li>	
 						<li id="menu-item-1571" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1571">
-							<a href="{!! asset('/dangkygiasu') !!}">ĐĂNG KÝ LÀM GIA SƯ</a></li>
+							<a href="{!! asset('/tutor/create') !!}">ĐĂNG KÝ LÀM GIA SƯ</a></li>
 					</ul>
 				</li>
 				<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1573 dropdown">
 					<a href="#">DANH CHO PHU HUYNH/ HOC SINH</a>
 					<ul class="dropdown-menu">
 						<li id="menu-item-1572" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1572">
-							<a href="{!! asset('/giasu') !!}">XEM GIA SƯ</a></li>
+							<a href="{!! asset('/tutor') !!}">XEM GIA SƯ</a></li>
 						<li id="menu-item-1592" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1593">
-							<a href="{!! asset('/dangbaitimgiasu') !!}">ĐĂNG BÀI TÌM GIA SƯ</a></li>
+							<a href="{!! asset('/post/create') !!}">ĐĂNG BÀI TÌM GIA SƯ</a></li>
 					</ul>
 				</li>				
 				<li id="menu-item-1573" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-20">
-					<a href="{!! asset('/gioithieu') !!}">GIỚI THIỆU<b class="caret"></b></a>
+					<a href="{!! asset('/introduce') !!}">GIỚI THIỆU<b class="caret"></b></a>
 				</li>
 				<li id="menu-item-20" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-20">
-					<a href="{!! asset('/lienhe') !!}">LIÊN HỆ</a></li>
+					<a href="{!! asset('/contact') !!}">LIÊN HỆ</a></li>
 				<li id="menu-item-20" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-20">
-					<a href="{!! asset('/dangnhap') !!}">ĐĂNG NHẬP</a></li>
+					<a href="{!! asset('/log-in') !!}">ĐĂNG NHẬP</a></li>
 			</ul>		
 		</div><!-- /.navbar-collapse -->
 	</div><!-- /.container-fluid -->

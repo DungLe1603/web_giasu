@@ -10,36 +10,55 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', [
+    'as' => 'index',
+    'uses' => 'Pages\DashboardController@Index'
+]);
 
-Route::get('/', function () {
-    return view('index');
-});
+// Route::get('/','Pages/DashboardController@Index');
 
-Route::get('/dangnhap', function () {
-    return view('dangnhap');
-});
+Route::get('/log-in', [
+    'as' => 'login',
+    'uses' => 'Auth\LoginController@getLogin'
+]);
 
-Route::get('/lienhe', function () {
-    return view('lienhe');
-});
+// Route::post('/login', [
+//     'as' => 'login',
+//     'uses' => 'Auth\LoginController@login',
+// ]);
 
-Route::get('/gioithieu', function () {
-    return view('gioithieu');
-});
+Route::post('log-out', [
+    'as' => 'logout',
+    'Auth\LogoutController@postLogout'
+]);
 
-Route::get('/dangkygiasu', function () {
-    return view('dangkygiasu');
-});
+Route::get('/contact', [
+    'as' => 'contact',
+    'uses' => 'Pages\ContactController@getContact'
+]);
 
-Route::get('/dangbaitimgiasu', function () {
-    return view('dangbaitimgiasu');
-});
+Route::get('/introduce', [
+    'as' => 'introduce',
+    'uses' => 'Pages\IntroduceController@getIntroduction'
+]);
 
-Route::get('/baidang', function () {
-    return view('baidang');
-});
+Route::resource('post', 'Pages\PostController');
 
-Route::get('/giasu', function () {
-    return view('giasu');
-});
+Route::resource('tutor', 'Pages\TutorController');
+
+// Route::get('/dangkygiasu', function () {
+//     return view('dangkygiasu');
+// });
+
+// Route::get('/dangbaitimgiasu', function () {
+//     return view('dangbaitimgiasu');
+// });
+
+// Route::get('/baidang', function () {
+//     return view('baidang');
+// });
+
+// Route::get('/giasu', function () {
+//     return view('giasu');
+// });
 
