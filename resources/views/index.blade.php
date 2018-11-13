@@ -22,7 +22,7 @@
 						<div class="media-body">
 							<h3>Phụ huynh / Học viên</h3>
 							<p>Phụ huynh, Học viên cần tìm gia sư giỏi, nhấp vào 
-								<a href="{!! asset('dangbaitimgiasu')!!}/">[Đăng bài tìm gia sư]</a>.</p>
+								<a href="{!! asset('post/create')!!}/">[Đăng bài tìm gia sư]</a>.</p>
 						</div>
 					</div>
 				</div>
@@ -36,7 +36,7 @@
 						<div class="media-body">
 							<h3>Sinh viên / Giáo viên</h3>
 							<p>Sinh viên, Giáo viên đăng ký làm gia sư, nhấp vào 
-								<a href="{!! asset('dangkygiasu')!!}">[Đăng ký làm gia sư]</a>.</p>
+								<a href="{!! asset('tutor/create')!!}">[Đăng ký làm gia sư]</a>.</p>
 						</div>
 					</div>
 				</div>
@@ -51,7 +51,7 @@
 						<div class="media-body">
 							<h3>Các suất dạy mới</h3>
 							<p>Gia sư chọn các suất dạy phù hợp, nhấp vào 
-								<a href="{!! asset('/baidang')!!}">[Các suất dạy mới]</a>.</p>
+								<a href="{!! asset('post')!!}">[Các suất dạy mới]</a>.</p>
 						</div>
 					</div>
 				</div>
