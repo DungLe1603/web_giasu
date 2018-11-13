@@ -1,8 +1,8 @@
 
-	Tis is the laravel framwork
+	This is the laravel framwork
 	In order to start a project, you should have some step:
 	1. Set database that you will use for your project
-	 -> .env, .env.exxemple -> DB_DATABASE=your_database //database you will use for project
+	 -> .env -> DB_DATABASE=your_database //database you will use for project
 							DB_USERNAME=root //default
 							DB_PASSWORD= 	 //default = Null
 
