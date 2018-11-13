@@ -22,7 +22,8 @@ git merge develop ( be aware !)
 ## How to run project
 Run cmd or terminal in web_giasu 
 	-> php artisan serve
-or: Rung cmd or terminal in web_giasu/public
+    
+Or: Rung cmd or terminal in web_giasu/public
 	-> php -S localhost:8000
 
 ## How to work with git
