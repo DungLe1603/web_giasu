@@ -6,6 +6,7 @@ We will have 4 main branches
 - Develop: for coding -> we work in this branch
 - Release
 - Hotfix
+
 1. Clone the git
 git clone https://github.com/DungLe1603/web_giasu //default in develop
 
@@ -16,14 +17,25 @@ git checkout -b {new_branch}
 git merge develop ( be aware !)
 
 3. Push that branch back to git
--first: git push -u origin {name_of_branch}
--continue: git push
+-For the first: git push -u origin {name_of_branch}
+-To be continue: git push
 
 ## How to run project
-Run cmd or terminal in web_giasu 
+1. Install and update Composer
+    -> composer install
+    -> composer update
+    
+2. Enable key for the application
+    -> save file .env.example as .env
+    -> php artisan key:generate
+    
+3. You can open application by genaral way
+    -> http://localhost/web_giasu/public/  // default
+    
+Or: Run cmd or terminal in web_giasu 
 	-> php artisan serve
     
-Or: Rung cmd or terminal in web_giasu/public
+Or: Run cmd or terminal in web_giasu/public
 	-> php -S localhost:8000
 
 ## How to work with git
