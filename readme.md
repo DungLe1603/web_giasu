@@ -1,4 +1,4 @@
-# SonLamComputer
+# Giasudanang
 
 ## How to get started
 we will have 4 main branch
