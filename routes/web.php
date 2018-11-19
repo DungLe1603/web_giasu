@@ -11,10 +11,13 @@
 |
 */
 Route::get('/', [
-    'as' => 'index',
+    'as' => 'home',
     'uses' => 'Pages\DashboardController@Index'
 ]);
-
+Route::get('/home', [
+    'as' => 'home',
+    'uses' => 'Pages\DashboardController@Index'
+]);
 // Route::get('/','Pages/DashboardController@Index');
 
 Route::get('/log-in', [
@@ -64,3 +67,7 @@ Route::resource('tutor', 'Pages\TutorController');
 // Đăng ký thành viên
 Route::get('register', 'Auth\RegisterController@getRegister');
 Route::post('register', 'Auth\RegisterController@postRegister');
+
+Route::get('/mk', function() {
+    echo bcrypt('123456'); 
+});

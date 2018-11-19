@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title></title>  
+  <title></title>
+  <meta charset="utf-8">
   <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
   <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -16,13 +17,14 @@
       <div class="col-md-4 login-sec">
 
           <h2 class="text-center">Ðang nhap</h2>
-          <form class="login-form" action="{{route('login')}}" method="post">
+          <form class="login-form" action="{{ route('login')}}" method="post">
+            @csrf
             @if(Session::has('flag'))
               <div class="alert alert-{{Session::get('flag')}}">{{Session::get('message')}}</div>
             @endif
             <div class="form-group">
               <label for="exampleInputEmail1" >Tên dang nhap</label>
-              <input type="text" name="text" class="form-control" placeholder="" required> 
+              <input type="text" name="username" class="form-control" placeholder="" required> 
             </div>
             <div class="form-group">
               <label for="exampleInputPassword1" >Mat khau</label>
