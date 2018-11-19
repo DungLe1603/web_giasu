@@ -12,30 +12,34 @@
   <section class="login-block">
       <div class="container">
     <div class="row">
+      
       <div class="col-md-4 login-sec">
-          <h2 class="text-center">Đăng nhập</h2>
-          <form class="login-form" action="{!! asset('/') !!}">
+
+          <h2 class="text-center">Ðang nhap</h2>
+          <form class="login-form" action="{{route('login')}}" method="post">
+            @if(Session::has('flag'))
+              <div class="alert alert-{{Session::get('flag')}}">{{Session::get('message')}}</div>
+            @endif
             <div class="form-group">
-              <label for="exampleInputEmail1" >Tên đăng nhập</label>
-              <input type="text" class="form-control" placeholder="">
-              
+              <label for="exampleInputEmail1" >Tên dang nhap</label>
+              <input type="text" name="text" class="form-control" placeholder="" required> 
             </div>
             <div class="form-group">
-              <label for="exampleInputPassword1" >Mật khẩu</label>
-              <input type="password" class="form-control" placeholder="">
+              <label for="exampleInputPassword1" >Mat khau</label>
+              <input type="password" name="password" class="form-control" placeholder="" required>
             </div>
             
             
               <div class="form-check">
               <label class="form-check-label">
                 <input type="checkbox" class="form-check-input">
-                <small>Nhớ mật khẩu</small>
+                <small>Nho mat khau</small>
               </label>
-              <button type="submit" class="btn btn-login float-right">Đăng nhập</button>
+              <button type="submit" class="btn btn-login float-right">Ðang nhap</button>
             </div>
             
           </form>
-  <div class="copy-text">Đồ án<i class="fa fa-heart"></i> <a href="http://grafreez.com">Thực tập công nhân</a></div>
+  <div class="copy-text">Ðo án<i class="fa fa-heart"></i> <a href="http://grafreez.com">Thuc tap công nhân</a></div>
       </div>
       <div class="col-md-8 banner-sec">
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -49,10 +53,10 @@
             <img class="d-block img-fluid" src="https://static.pexels.com/photos/33972/pexels-photo.jpg" alt="First slide">
             <div class="carousel-caption d-none d-md-block">
               <div class="banner-text">
-                  <h2>GIA SƯ ĐÀ NẴNG</h2>
-                  <p>Trung tâm gia sư uy tín, chất lượng
-                  <br> Chúng tôi tự hào là địa chỉ tin cậy 
-                  <br>của các bậc phụ huynh, học sinh và gia sư tại Đà Nẵng! </p>
+                  <h2>GIA SU ÐÀ N?NG</h2>
+                  <p>Trung tâm gia su uy tín, chat luong
+                  <br> Chúng tôi tu hào là dia chi tin cay 
+                  <br>cua các bac phu huynh, hoc sinh và gia su tai Ðà Nang! </p>
               </div>  
         </div>
       </div>

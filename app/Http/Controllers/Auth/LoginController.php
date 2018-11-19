@@ -44,4 +44,27 @@ class LoginController extends Controller
         // }
         return view('dangnhap');
     }
+    public function postLogin(Request $req)
+    {
+        $this->validate($req,
+            [
+                'text'=>'required|text',
+                'password'=>'required|min:6|max:20'
+            ],
+            [
+                'text.required'=>'vui long nhap tai khoan',
+                'password.required'=> 'vui long nhap password',
+                'password.min'=> 'mat khau it nhat 6 kí tự',
+                'password.max'=> 'mat khau khong qua 20 ki tu'
+            ]
+        );
+        $credentials = array('text'=>$req->text,'password'=>$req->password);
+        if (Auth::attempt($credentials)){
+            return redirect()->back()->with(['flag'=>'success','message'=>'dang nhap thanh cong']);
+        }
+        else{
+            return redirect()->back()->with(['flag'=>'danger','message'=>'dang nhap khong thanh cong']);
+        }
+        
+    }
 }

@@ -22,10 +22,10 @@ Route::get('/log-in', [
     'uses' => 'Auth\LoginController@getLogin'
 ]);
 
-// Route::post('/login', [
-//     'as' => 'login',
-//     'uses' => 'Auth\LoginController@login',
-// ]);
+Route::post('/log-in', [
+    'as' => 'login',
+    'uses' => 'Auth\LoginController@postLogin',
+]);
 
 Route::post('log-out', [
     'as' => 'logout',
@@ -61,4 +61,6 @@ Route::resource('tutor', 'Pages\TutorController');
 // Route::get('/giasu', function () {
 //     return view('giasu');
 // });
-
+// Đăng ký thành viên
+Route::get('register', 'Auth\RegisterController@getRegister');
+Route::post('register', 'Auth\RegisterController@postRegister');
