@@ -8,6 +8,7 @@ class Times extends Model
 {
     //
     protected $fillable = [
-        'id', 'name', 'created_at', 'updated_at', 'delete_flag'
+        'id', 'name', 'created_at', 'updated_at', 'delete_flag''
+        
     ];
 }
