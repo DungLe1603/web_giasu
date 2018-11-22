@@ -22,7 +22,7 @@
 	<div class="container">
 		<!-- Brand and toggle get grouped for better mobile display -->
 		<div class="navbar-header">
-			<h1><a class="navbar-brand" href="https://trungtamgiasudanang.vn/" title="Appointment">
+			<h1><a class="navbar-brand" href="{!! asset('/') !!}" title="Appointment">
 					<img class="img-responsive" src="{!! asset('template/logo-trung-tam-gia-su-da-nang.jpg') !!}" style="height:px; width:px;">
 				</a>
 			</h1>
