@@ -46,6 +46,13 @@ Route::resource('post', 'Pages\PostController');
 
 Route::resource('tutor', 'Pages\TutorController');
 
+
+
+Route::get('/dangkygiasu', function () {
+    return view('dangkygiasu');
+});
+// Route::get('controller', GiaSuDangBai@dangBai);
+
 // Route::get('/dangkygiasu', function () {
 //     return view('dangkygiasu');
 // });
