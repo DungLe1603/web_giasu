@@ -1,5 +1,6 @@
 @extends('masterpage')
 @section('content')
+<link rel="stylesheet" type="text/css" href="{!! asset('css/post.css') !!}">
 
 <div class="page-title-section">		
 	<div class="overlay">
@@ -20,9 +21,24 @@
 			<!-- Blog Area -->
 			<div class="col-md-8">
 				<div class="blog-lg-area-left">
-					<p>Trung Tâm Gia Sư Đà Nẵng liên tục&nbsp;đăng&nbsp;các suất dạy mới lên Fanpage.
-					<br> Quý thầy, cô và các bạn sinh viên hãy đăng ký nhận các suất dạy một cách nhanh nhất.</p>
-					<p>(Đây là phần hiển thị các bài đăng)</p>
+					<ul class="post-list row">
+						@foreach($posts as $post)
+							<li class="post-item col-md-6">
+								<p><strong>Mã Lớp: {{$post->id}}</strong></p>
+								<p><strong>Môn học: </strong> {{$post->subject? $post->subject : '-'}}</p>
+								<p><strong>Số học sinh: </strong> {{$post->number_student? $post->number_student : '-'}}</p>
+								<P><strong>Số buổi: </strong> {{$post->number_time? $post->number_time : '-'}}</P>
+								<p><strong>Thời gian: </strong> {{$post->time? $post->time : '-'}}</p>
+								<p><strong>Mức lương: </strong> {{$post->payment? $post->payment : '-'}}</p>
+								<p><strong>Tên phụ huynh: </strong> {{$post->parent_name ? $post->parent_name : '-'}}</p>
+								<p><strong>Số điện thoại: </strong> {{$post->phone? $post->phone : '-'}}</p>
+								<p><strong>Địa chỉ: </strong> {{$post->address? $post->address : '-'}}</p>
+								<p><strong>Yêu cầu: </strong> {{$post->requirement? $post->requirement : '-'}}</p>
+								<hr>
+							</li>
+						@endforeach
+					</ul>
+					<div lass="row">{{$posts->links()}}</div>
 				</div>
 			</div>
 			<!-- /Blog Area -->			

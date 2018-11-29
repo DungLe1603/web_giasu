@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Pages;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Posts;
 
 class PostController extends Controller
 {
@@ -14,7 +15,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        return view('baidang');
+        $posts = Posts::where('delete_flag', 0)->paginate(4);;
+        return view('baidang', compact('posts'));
     }
 
     /**

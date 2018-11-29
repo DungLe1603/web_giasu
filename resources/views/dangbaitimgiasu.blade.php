@@ -1,5 +1,6 @@
 @extends('masterpage')
 @section('content')
+
 <div class="page-title-section">		
 	<div class="overlay">
 		<div class="container">
@@ -19,32 +20,52 @@
 			<!-- Blog Area -->
 			<div class="col-md-8">
 				<div class="blog-lg-area-left">
-					<p> Quý phụ huynh, học viên cần tìm gia sư vui lòng điền thông tin vào form bên dưới và bấm nút “Gửi đi”.<br> Gia sư bạn cần sẽ sớm dược tìm thấy!</p>
+					<p style="text-align: center;"> Quý phụ huynh, học viên cần tìm gia sư vui lòng điền thông tin vào form bên dưới và bấm nút “Gửi đi”.<br> Gia sư bạn cần sẽ sớm dược tìm thấy!</p>
 					<div role="form" class="wpcf7" id="wpcf7-f433-p432-o1" lang="en-US" dir="ltr">
-						<div class="screen-reader-response"></div>
-						<form action="#" method="post" class="wpcf7-form" novalidate="novalidate">
-							<div style="display: none;">
-								<input type="hidden" name="_wpcf7" value="433">
-								<input type="hidden" name="_wpcf7_version" value="5.0.5">
-								<input type="hidden" name="_wpcf7_locale" value="en_US">
-								<input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f433-p432-o1">
-								<input type="hidden" name="_wpcf7_container_post" value="432">
+						<div class="row">
+							<div class="col-md-2"></div>
+							<div class="col-md-8">
+								<form class="form-post" action="" method="post" style="color: #727272;">
+								  <div class="form-group">
+								    <label for="parent_name">Tên phụ huynh (vd: Nguyễn Văn A):</label>
+								    <input type="text" class="form-control" name="parent_name">
+								  </div>
+								  <div class="form-group">
+								    <label for="address">Địa chỉ (vd: 54 Nguyễn Lương Bằng, Hòa Khánh, Liên Chiểu, Đà Nẵng):</label>
+								    <input type="text" class="form-control" name="address">
+								  </div>
+								  <div class="form-group">
+								    <label for="phone">Số điện thoại (vd: 0987654312):</label>
+								    <input type="text" class="form-control" name="phone">
+								  </div>
+								  <div class="form-group">
+								    <label for="subject">Môn học, lớp (Vd: Toán, Lý, Hóa lớp 10):</label>
+								    <input type="text" class="form-control" name="subject">
+								  </div>
+								  <div class="form-group">
+								    <label for="number_student">Số hoc sinh (vd: 2):</label>
+								    <input type="text" class="form-control" name="number_student">
+								  </div>
+								  <div class="form-group">
+								    <label for="number_time">Số buổi / tuần (vd: 3):</label>
+								    <input type="text" class="form-control" name="number_time">
+								  </div>
+								  <div class="form-group">
+								    <label for="time">Thời gian (vd: Tối thứ 2/4/6):</label>
+								    <input type="text" class="form-control" name="time">
+								  </div>
+								  <div class="form-group">
+								    <label for="payment">Mức lương (vd: 100000Đ):</label>
+								    <input type="text" class="form-control" name="payment">
+								  </div>
+								  <div class="form-group">
+								    <label for="requirement">Yêu cầu (vd: Sinh viên nữ, có kinh nghiệm):</label>
+								    <input type="text" class="form-control" name="requirement">
+								  </div>
+								  <button type="submit" class="wpcf7-form-control wpcf7-submit">Gửi đi</button>
+								</form>
 							</div>
-							<p><label> Điện thoại<br>
-							    <span class="wpcf7-form-control-wrap dien-thoai"><input type="text" name="dien-thoai" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false"></span> </label></p>
-							<p><label> Địa chỉ (Tên đường)<br>
-							    <span class="wpcf7-form-control-wrap dia-chi"><input type="text" name="dia-chi" value="" size="40" class="wpcf7-form-control wpcf7-text" aria-invalid="false"></span> </label></p>
-							<p><label> Cần tìm gia sư dạy Lớp mấy? Môn gì?<br>
-							    <span class="wpcf7-form-control-wrap lop-mon"><input type="text" name="lop-mon" value="" size="40" class="wpcf7-form-control wpcf7-text" aria-invalid="false"></span> </label></p>
-							<p><label> Số buổi, thời gian dạy (vd: 3 buổi/tuần, tối thứ 2-4-6 từ 7h-8h30)<br>
-							    <span class="wpcf7-form-control-wrap buoi-thoigian"><input type="text" name="buoi-thoigian" value="" size="40" class="wpcf7-form-control wpcf7-text" aria-invalid="false"></span> </label></p>
-							<p><label> Thông tin khác (vd: học sinh nữ, yêu cầu gia sư nữ...)<br>
-							    <span class="wpcf7-form-control-wrap tong-tin-khac"><input type="text" name="tong-tin-khac" value="" size="40" class="wpcf7-form-control wpcf7-text" aria-invalid="false"></span> </label></p>
-							<p>
-								<input type="submit" value="Gửi đi" class="wpcf7-form-control wpcf7-submit"><span class="ajax-loader"></span>
-							</p>
-							<div class="wpcf7-response-output wpcf7-display-none"></div>
-						</form>
+						</div>
 					</div>
 					<p>&nbsp;</p>
 				</div>
