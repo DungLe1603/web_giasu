@@ -15,7 +15,7 @@ class Subjects extends Model
     'delete_flag'      
   ];
 
-  public function posts(){
-    return $this->belongsToMany('App\Post','subject_post', 'post_id' 'subject_id');
-  }
+  // public function posts(){
+  //   return $this->belongsToMany('App\Post','subject_post', 'post_id' 'subject_id');
+  // }
 }

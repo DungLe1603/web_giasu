@@ -18,8 +18,8 @@ class Genders extends Model
     return $this->hasMany('App\Tutors', 'tutor_id');
   }
 
-  public function posts() {
-    return  $this->hasMany('App\Tutors', 'tutor_id');
-  }
+  // public function posts() {
+  //   return  $this->hasMany('App\Tutors', 'tutor_id');
+  // }
 
 }
