@@ -14,7 +14,7 @@ class Times extends Model
     'delete_flag'    
   ];
 
-  public function posts {
-    return $this->hasMany('App\Posts', 'time_id')
-  }
+  // public function posts {
+  //   return $this->hasMany('App\Posts', 'time_id')
+  // }
 }

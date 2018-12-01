@@ -24,24 +24,24 @@ class Posts extends Model
     'delete_flag'
   ];
 
-  public function time() {
-    return $this->belongTo('App\Times', 'time_id');
-  }
+  // public function time() {
+  //   return $this->belongTo('App\Times', 'time_id');
+  // }
 
-  public function tutor_level() {
-    return $this->belongsTo('App\levels', 'tutor_level_id');
-  }
+  // public function tutor_level() {
+  //   return $this->belongsTo('App\levels', 'tutor_level_id');
+  // }
 
-  public function tutor_gender() {
-    return $this->belongsTo('App\levels', 'tutor_gender_id');
-  }
+  // public function tutor_gender() {
+  //   return $this->belongsTo('App\levels', 'tutor_gender_id');
+  // }
 
-  public function subjects(){
-    return $this->belongsToMany('App\Subjects', 'subject_post', 'subject_id', 'post_id');
-  }
+  // public function subjects(){
+  //   return $this->belongsToMany('App\Subjects', 'subject_post', 'subject_id', 'post_id');
+  // }
 
-  public function classes(){
-    return $this->belongsToMany('App\classes','class_post', 'class_id', 'post_id');
-  }
+  // public function classes(){
+  //   return $this->belongsToMany('App\classes','class_post', 'class_id', 'post_id');
+  // }
 
 }

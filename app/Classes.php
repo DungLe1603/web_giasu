@@ -15,7 +15,7 @@ class Classes extends Model
     'delete_flag',
   ];
 
-  public function posts(){
-    return $this->belongsToMany('App\classes','class_post', 'post_id', 'class_id');
-  }
+  // public function posts(){
+  //   return $this->belongsToMany('App\classes','class_post', 'post_id', 'class_id');
+  // }
 }

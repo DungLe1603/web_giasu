@@ -25,8 +25,8 @@ class Tutors extends Model
     'updated_at',
     'delete_flag'      
   ];
-  public function tutor() {
-    return $this->hasOne('App\Tutors', 'id');
+  public function user() {
+    return $this->hasOne('App\User', 'id');
   }
   public function gender() {
     return $this->belongsTo('App\Genders', 'gender_id');

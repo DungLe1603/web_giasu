@@ -14,7 +14,7 @@ class Levels extends Model
     'delete_flag'     
   ];
 
-  public function post() {
-    return $this->hasMany('App\Posts', 'level_id');
-  }
+  // public function post() {
+  //   return $this->hasMany('App\Posts', 'level_id');
+  // }
 }
