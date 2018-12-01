@@ -1,7 +1,20 @@
 @extends('masterpage')
 @section('content')
 <link rel="stylesheet" type="text/css" href="{!! asset('css/post.css') !!}">
-
+<style type="text/css">
+	.btn-post {
+		background: #006799;
+    border: 1px solid #006799;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+	}
+	.link-edit,
+	.link-edit:hover {
+		color: #fff;
+	}
+}
+</style>
 <div class="page-title-section">		
 	<div class="overlay">
 		<div class="container">
@@ -34,6 +47,13 @@
 								<p><strong>Số điện thoại: </strong> {{$post->phone? $post->phone : '-'}}</p>
 								<p><strong>Địa chỉ: </strong> {{$post->address? $post->address : '-'}}</p>
 								<p><strong>Yêu cầu: </strong> {{$post->requirement? $post->requirement : '-'}}</p>
+								
+								<button class="btn-post"><a href="post/{{$post->id}}/edit" class="link-edit"> Chỉnh sửa</a></button>
+
+								{{ Form::model($post, ['url' => ['/post', $post["id"]], 'method'=> 'DELETE', 'enctype' => 'multipart/form-data', 'style' => 'display: inline-block;',
+								 'onsubmit' => "return confirm('Bạn có muốn xóa suất dạy này không?');"])}}
+									<button type="submit"  class="btn-post">Xóa</button>
+								{{ Form::close()}}
 								<hr>
 							</li>
 						@endforeach

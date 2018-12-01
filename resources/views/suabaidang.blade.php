@@ -1,6 +1,6 @@
 @extends('masterpage')
 @section('content')
-
+{{-- @dd($post); --}}
 <div class="page-title-section">		
 	<div class="overlay">
 		<div class="container">
@@ -25,46 +25,57 @@
 						<div class="row">
 							<div class="col-md-2"></div>
 							<div class="col-md-8">
-								<form class="form-post" action="{{ asset( 'post')}} " method="post" enctype = 'multipart/form-data' style="color: #727272;">
+								{{ Form::model($post, ['url' => ['/post', $post["id"]],'class' => 'form-post','method'=>isset($post["id"])?'PUT':'POST','enctype' => 'multipart/form-data', 'style' => 'color: #727272;'])}}
 								  <div class="form-group">
 								    <label for="parent_name">Tên phụ huynh (vd: Nguyễn Văn A):</label>
-								    <input type="text" class="form-control" name="parent_name">
+								    <input type="text" class="form-control" name="parent_name" 
+								    	value="{{ isset($post->parent_name) ? $post->parent_name : ""}}">
 								  </div>
 								  <div class="form-group">
 								    <label for="address">Địa chỉ (vd: 54 Nguyễn Lương Bằng, Hòa Khánh, Liên Chiểu, Đà Nẵng):</label>
-								    <input type="text" class="form-control" name="address">
+								    <input type="text" class="form-control" name="address"
+								    	value="{{ isset($post->address) ? $post->address : ""}}">
 								  </div>
 								  <div class="form-group">
 								    <label for="phone">Số điện thoại (vd: 0987654312):</label>
-								    <input type="text" class="form-control" name="phone">
+								    <input type="text" class="form-control" name="phone"
+								    	value="{{ isset($post->phone) ? $post->phone : ""}}">
 								  </div>
 								  <div class="form-group">
 								    <label for="subject">Môn học, lớp (Vd: Toán, Lý, Hóa lớp 10):</label>
-								    <input type="text" class="form-control" name="subject">
+								    <input type="text" class="form-control" name="subject"
+								    	value="{{ isset($post->subject) ? $post->subject : ""}}">
 								  </div>
 								  <div class="form-group">
 								    <label for="number_student">Số hoc sinh (vd: 2):</label>
-								    <input type="text" class="form-control" name="number_student">
+								    <input type="text" class="form-control" name="number_student"
+								    	value="{{ isset($post->number_student) ? $post->number_student : ""}}">
 								  </div>
 								  <div class="form-group">
 								    <label for="number_time">Số buổi / tuần (vd: 3):</label>
-								    <input type="text" class="form-control" name="number_time">
+								    <input type="text" class="form-control" name="number_time"
+								    	value="{{ isset($post->number_time) ? $post->number_time : ""}}">
 								  </div>
 								  <div class="form-group">
 								    <label for="time">Thời gian (vd: Tối thứ 2/4/6):</label>
-								    <input type="text" class="form-control" name="time">
+								    <input type="text" class="form-control" name="time"
+								    	value="{{ isset($post->time) ? $post->time : ""}}">
 								  </div>
 								  <div class="form-group">
 								    <label for="payment">Mức lương (vd: 100000Đ):</label>
-								    <input type="text" class="form-control" name="payment">
+								    <input type="text" class="form-control" name="payment"
+								    	value="{{ isset($post->payment) ? $post->payment : ""}}">
 								  </div>
 								  <div class="form-group">
 								    <label for="requirement">Yêu cầu (vd: Sinh viên nữ, có kinh nghiệm):</label>
-								    <input type="text" class="form-control" name="requirement">
+								    <input type="text" class="form-control" name="requirement"
+								    	value="{{ isset($post->requirement) ? $post->requirement : ""}}">
 								  </div>
 								  <button type="submit" class="wpcf7-form-control wpcf7-submit">Gửi đi</button>
-								  {{ csrf_field() }}
+								  <button type="reset" class="wpcf7-form-control wpcf7-submit" style="margin: 0 20px;">Làm mới</button>
+								  {{-- {{ csrf_field() }} --}}
 								</form>
+								{{ Form::close()}}
 							</div>
 						</div>
 					</div>
