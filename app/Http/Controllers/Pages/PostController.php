@@ -15,8 +15,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Posts::where('delete_flag', 0)->paginate(4);;
-        return view('baidang', compact('posts'));
+        $posts = Posts::where('delete_flag', 0)->paginate(4);
+        return view('post\baidang', compact('posts'));
     }
 
     /**
@@ -26,7 +26,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('dangbaitimgiasu');
+        return view('post\dangbaitimgiasu');
     }
 
     /**
@@ -75,7 +75,7 @@ class PostController extends Controller
     public function edit($id)
     {
         $post = Posts::find($id);
-        return view('suabaidang',  compact('post'));
+        return view('post\suabaidang',  compact('post'));
     }
 
     /**

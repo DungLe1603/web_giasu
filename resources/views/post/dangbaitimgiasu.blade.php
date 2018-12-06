@@ -28,35 +28,35 @@
 								<form class="form-post" action="{{ asset( 'post')}} " method="post" enctype = 'multipart/form-data' style="color: #727272;">
 								  <div class="form-group">
 								    <label for="parent_name">Tên phụ huynh (vd: Nguyễn Văn A):</label>
-								    <input type="text" class="form-control" name="parent_name">
+								    <input required type="text" class="form-control" name="parent_name">
 								  </div>
 								  <div class="form-group">
 								    <label for="address">Địa chỉ (vd: 54 Nguyễn Lương Bằng, Hòa Khánh, Liên Chiểu, Đà Nẵng):</label>
-								    <input type="text" class="form-control" name="address">
+								    <input required type="text" class="form-control" name="address">
 								  </div>
 								  <div class="form-group">
 								    <label for="phone">Số điện thoại (vd: 0987654312):</label>
-								    <input type="text" class="form-control" name="phone">
+								    <input required type="text" class="form-control" name="phone">
 								  </div>
 								  <div class="form-group">
 								    <label for="subject">Môn học, lớp (Vd: Toán, Lý, Hóa lớp 10):</label>
-								    <input type="text" class="form-control" name="subject">
+								    <input required type="text" class="form-control" name="subject">
 								  </div>
 								  <div class="form-group">
 								    <label for="number_student">Số hoc sinh (vd: 2):</label>
-								    <input type="text" class="form-control" name="number_student">
+								    <input required type="text" class="form-control" name="number_student">
 								  </div>
 								  <div class="form-group">
 								    <label for="number_time">Số buổi / tuần (vd: 3):</label>
-								    <input type="text" class="form-control" name="number_time">
+								    <input required type="text" class="form-control" name="number_time">
 								  </div>
 								  <div class="form-group">
 								    <label for="time">Thời gian (vd: Tối thứ 2/4/6):</label>
-								    <input type="text" class="form-control" name="time">
+								    <input required type="text" class="form-control" name="time">
 								  </div>
 								  <div class="form-group">
 								    <label for="payment">Mức lương (vd: 100000Đ):</label>
-								    <input type="text" class="form-control" name="payment">
+								    <input required type="text" class="form-control" name="payment">
 								  </div>
 								  <div class="form-group">
 								    <label for="requirement">Yêu cầu (vd: Sinh viên nữ, có kinh nghiệm):</label>
