@@ -18,6 +18,16 @@
 		<div class="row">
 			<!-- Blog Area -->
 			<div class="col-md-8">
+			@if (session()->has('success'))
+			    <div id="alert-message">
+		        <strong class="alert-success">{{ session('success') }}</strong>
+			    </div>
+					<script type="text/javascript">
+						setTimeout(function(){
+							document.getElementById("alert-message").innerHTML = '';
+						}, 2000);
+					</script>
+				@endif
 				@foreach($tutors as $tutor)
 				{{-- @dd($tutor); --}}
 					@if($tutor->user['role']['name'] == 'User')

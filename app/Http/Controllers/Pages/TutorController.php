@@ -110,6 +110,7 @@ class TutorController extends Controller
         $deleteTutor->user->delete_flag = 1;
         $deleteTutor->delete_flag = 1;
         if ( ($deleteTutor->save()) && ($deleteTutor->user->save()) ) {
+            session()->flash('success', 'Đã xóa thành công!');
             return redirect('tutor');
         } else {
             echo "Xóa thất bại";
