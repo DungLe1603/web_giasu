@@ -34,3 +34,7 @@
 .profile-image {
   margin-top: 50px;
 }
+.alert-success {
+  padding: 10px 20px;
+  display: block;
+}

@@ -15,7 +15,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Posts::where('delete_flag', 0)->paginate(4);
+        $posts = Posts::where('delete_flag', 0)
+                        ->orderBy('id', 'desc') ->paginate(4);
         return view('post\baidang', compact('posts'));
     }
 
@@ -47,8 +48,8 @@ class PostController extends Controller
         $createPost->time = $request->time;
         $createPost->payment = $request->payment;
         $createPost->requirement = $request->requirement;
-        if ($createPost->save())
-        {
+        if ($createPost->save()) {
+            session()->flash('success', 'Đăng bài thành công!');
             return redirect('post');
         } else {
             echo "Thêm suất dạy thất bại";
@@ -97,8 +98,8 @@ class PostController extends Controller
         $editPost->time = $request->time;
         $editPost->payment = $request->payment;
         $editPost->requirement = $request->requirement;
-        if ($editPost->save())
-        {
+        if ($editPost->save()) {
+            session()->flash('success', 'Chỉnh sửa thành công!');
             return redirect('post');
         } else {
             echo "Chỉnh sửa suất dạy thất bại";
@@ -116,6 +117,7 @@ class PostController extends Controller
         $deletePost = Posts::where('delete_flag', 0)->find($id);
         $deletePost->delete_flag = 1;
         if ($deletePost->save()) {
+            session()->flash('success', 'Đã xóa thành công!');
             return redirect('post');
         } else {
             echo "Xóa thất bại";
