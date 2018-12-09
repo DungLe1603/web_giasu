@@ -29,10 +29,16 @@
 						    <label for="name">Họ và tên (vd: Nguyễn Văn A):</label>
 						    <input required type="text" class="form-control" name="name">
 						  </div>
-						  {{-- <div class="form-group">
+						  <div class="form-group">
 						    <label for="gender">Giới tính:</label>
-						    <input type="text" class="form-control" name="gender">
-						  </div> --}}
+						  
+						    <select class="form-control" name="gender_id">
+						    	@foreach($genders as $g)
+						    	<option value="{{$g->id}}" >{{$g->name}}</option>
+						    	@endforeach
+						    </select>
+						    
+						  </div>
 						  <div class="form-group">
 						    <label for="birthday">Ngày sinh:</label>
 						    <input required type="date" class="form-control" name="birthday">
@@ -82,8 +88,17 @@
 						    <input required type="password" class="form-control" name="repassword">
 						  </div>
 						  <div class="profile-image">
-						  	<img  class="block-center" src="/images/default.png">
-				  			<button type="button" class="block-center wpcf7-form-control wpcf7-submit">Chọn ảnh</button>
+						  	<img name="picture" alt="Hình ảnh của bạn" class="block-center" src="/images/default.png" id="output" >
+						  	<input type="file" name="filename" id="filename" accept="image/gif, image/jpeg, image/png" onchange="loadFile(event)">
+						  	<script>
+  								var loadFile = function(event) {
+    								var output = document.getElementById('output');
+    								output.style.height = '274px';
+    								output.style.width = '200px';
+    								output.src = URL.createObjectURL(event.target.files[0]);
+  								};
+							</script>
+				  			<!-- <button type="file" name="filename" class="block-center wpcf7-form-control wpcf7-submit" accept="image/gif, image/jpeg, image/png">Chọn ảnh</button> -->
 						  </div>
 						</div>						
 					</div>
