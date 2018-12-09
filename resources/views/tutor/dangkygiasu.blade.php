@@ -88,7 +88,7 @@
 						    <input required type="password" class="form-control" name="repassword">
 						  </div>
 						  <div class="profile-image">
-						  	<img name="picture" alt="Hình ảnh của bạn" class="block-center" src="/images/default.png" id="output" >
+						  	<img height="300px" width="250px" name="picture" alt="Hình ảnh của bạn" class="block-center" src="/images/default.png" id="output" >
 						  	<input type="file" name="filename" id="filename" accept="image/gif, image/jpeg, image/png" onchange="loadFile(event)">
 						  	<script>
   								var loadFile = function(event) {
