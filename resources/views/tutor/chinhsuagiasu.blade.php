@@ -94,10 +94,14 @@
 							<h4><strong class="text-uppercase profile-title">Thông tin đăng nhập</strong></h4>							
 						  <div class="form-group">
 						    <label for="username">Tên đăng nhập:</label>
-						    <input required type="text" value="{{$tutor->user->username}}" class="form-control" name="username">
+						    <input required type="text" disabled value="{{$tutor->user->username}}" class="form-control" name="username">
 						  </div>
 						  <div class="form-group">
-						    <label for="password">Mật khẩu:</label>
+						    <label for="password">Mật khẩu cũ:</label>
+						    <input type="password" class="form-control" name="oldpassword">
+						  </div>
+						  <div class="form-group">
+						    <label for="password">Mật khẩu mới:</label>
 						    <input type="password" class="form-control" name="password">
 						  </div>
 						  <div class="form-group">
@@ -105,7 +109,7 @@
 						    <input type="password" class="form-control" name="repassword">
 						  </div>
 						  <div class="profile-image">
-						  	<img name="picture" alt="Hình ảnh của bạn" class="block-center" src="/images/{{$tutor->picture}}" id="output" >
+						  	<img height="300px" width="250px" name="picture" alt="Hình ảnh của bạn" class="block-center" src="/images/{{$tutor->picture}}" id="output" >
 						  	<input type="file" name="filename" id="filename" accept="image/gif, image/jpeg, image/png" onchange="loadFile(event)">
 						  	<script>
   								var loadFile = function(event) {
@@ -120,15 +124,11 @@
 						  </div>
 						</div>					
 					</div>
-{{-- 
-					<button class="btn-post"><a href="/tutor" class="link-edit">Trở về</a></button>
-				  	<button type="submit" class="block-center wpcf7-form-control wpcf7-submit">Lưu</button> --}}
-
-				 	<table border="0">
-				 		<td><button class="block-center wpcf7-form-control wpcf7-submit"><a href="/tutor" class="link-edit">Trở về </a></button></td>
-				 		
-				 		<td><button type="submit" class="block-center wpcf7-form-control wpcf7-submit">Lưu</button></td>
-				 	</table>
+					<div>
+					 	<button type="submit" class="btn-post">Lưu</button>				 	
+					 	<button type="reset" class="btn-post">Làm mới</button>
+					 	<button type="button" class="btn-post"><a href="/tutor" class="link-edit">Trở về </a></button>
+					</div>
 				  {{-- {{ csrf_field() }} --}}
 				</form>
 			</div>

@@ -53,7 +53,6 @@ class TutorController extends Controller
         //     'time' => 'required|min:3',
         //     'salary' => 'required|min:3'
 
-
         // ], [
         //     'name.required' => 'Bạn chưa nhập tên'
         // ]);
@@ -76,12 +75,12 @@ class TutorController extends Controller
         $file->move('images', $file_name);
         $tutors->picture = $file_name;
 
-        // dd($request->password)
         $user = new User();
         $user->username = $request->username;
         $user->password = bcrypt($request->password);
         
-        if ($tutors->save() && $user->save()) {
+        if ($tutors->save() && $user->save()) { 
+            session()->flash('success', 'Đăng ký gia sư thành công!');
            return redirect('tutor');
         } else{
             echo "fail";
@@ -121,7 +120,7 @@ class TutorController extends Controller
      */
     public function update(Request $request, $id)
     {
-       $editTutor = Tutors::where('delete_flag', 0)->find($id);
+        $editTutor = Tutors::where('delete_flag', 0)->find($id);
 
         $editTutor->name = $request->name;
         $editTutor->gender_id = $request->gender_id;
@@ -141,12 +140,11 @@ class TutorController extends Controller
             $editTutor->picture = $file_name;
         }
 
-
         $editTutor->user->username = $request->username;
         $editTutor->user->password = bcrypt($request->password);
 
-         if ($editTutor->save() && $editTutor->user->save())
-        {
+        if ($editTutor->save() && $editTutor->user->save()) { 
+            session()->flash('success', 'Chỉnh sửa thành công!');
             return redirect('tutor');
         } else {
             echo "Chỉnh sửa thất bại";
