@@ -31,11 +31,21 @@ class User extends Authenticatable
 
     public function tutor()
     {
-        return $this->hasOne('App\Tutors', 'id');
+        return $this->hasOne('App\Tutor', 'id');
     }
 
     public function role()
     {
-        return $this->belongsTo('App\Roles', 'role_id');
+        return $this->belongsTo('App\Role');
+    }
+
+    public function roleAdmin(){
+        $has_role_admin = $this->whereHas('role',function($query){
+            $query->where('name', 'Admin');
+        })->where('id',$this->id)->get();
+        
+        if(count($has_role_admin)>0)
+            return true;
+        return false;
     }
 }

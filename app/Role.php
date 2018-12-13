@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Classes extends Model
+class Role extends Model
 {
   protected $fillable = [
     'id',
@@ -12,10 +12,9 @@ class Classes extends Model
     'description',
     'created_at',
     'updated_at',
-    'delete_flag',
+    'delete_flag'      
   ];
-
-  // public function posts(){
-  //   return $this->belongsToMany('App\classes','class_post', 'post_id', 'class_id');
-  // }
+  public function user() {
+    return $this->hasMany('App\User', 'role_id');
+  }
 }
