@@ -4,6 +4,10 @@ namespace App\Http\Controllers\Pages;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Tutors;
+use App\User;
+use App\Genders;
+use File, Input;
 
 class TutorController extends Controller
 {
@@ -14,7 +18,8 @@ class TutorController extends Controller
      */
     public function index()
     {
-        return view('giasu');
+        $tutors = Tutors::where('delete_flag', 0)->paginate(4);
+        return view('tutor\giasu', compact('tutors'));        
     }
 
     /**
@@ -24,7 +29,8 @@ class TutorController extends Controller
      */
     public function create()
     {
-        return view('dangkygiasu');
+        $genders = Genders::all();
+        return view('tutor\dangkygiasu', compact('genders'));
     }
 
     /**
@@ -35,7 +41,50 @@ class TutorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        // $this->validate($request, [
+        //     'name' => 'required|min:3',
+        //     'address' => 'required|min:3',
+        //     'phone' => 'required|max:9',
+        //     'password' => 'required|min:3|max:32',
+        //     'repassword' => 'required|same:password',
+        //     'school' => 'required|min:3',
+        //     'subject' => 'required|min:3',
+        //     'time' => 'required|min:3',
+        //     'salary' => 'required|min:3'
+
+        // ], [
+        //     'name.required' => 'Bạn chưa nhập tên'
+        // ]);
+
+
+        $tutors = new Tutors();
+        $tutors->name = $request->name;
+        $tutors->gender_id = $request->gender_id;
+        $tutors->birthday = $request->birthday;
+        $tutors->address = $request->address;
+        $tutors->phone = $request->phone;
+        $tutors->school = $request->level;
+        $tutors->school = $request->school;
+        $tutors->subject = $request->subject;
+        $tutors->time = $request->time;
+        $tutors->salary = $request->salary;
+
+        $file_name = $request->file('filename')->getClientOriginalName();
+        $file = $request->file('filename');
+        $file->move('images', $file_name);
+        $tutors->picture = $file_name;
+
+        $user = new User();
+        $user->username = $request->username;
+        $user->password = bcrypt($request->password);
+        
+        if ($tutors->save() && $user->save()) { 
+            session()->flash('success', 'Đăng ký gia sư thành công!');
+           return redirect('tutor');
+        } else{
+            echo "fail";
+        }
     }
 
     /**
@@ -46,7 +95,8 @@ class TutorController extends Controller
      */
     public function show($id)
     {
-        //
+       $tutor = Tutors::find($id);
+       return view('tutor\chitietgiasu', compact('tutor'));
     }
 
     /**
@@ -57,7 +107,8 @@ class TutorController extends Controller
      */
     public function edit($id)
     {
-        //
+        $tutor = Tutors::find($id);
+        return view('tutor\chinhsuagiasu', compact('tutor'));
     }
 
     /**
@@ -69,7 +120,35 @@ class TutorController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $editTutor = Tutors::where('delete_flag', 0)->find($id);
+
+        $editTutor->name = $request->name;
+        $editTutor->gender_id = $request->gender_id;
+        $editTutor->birthday = $request->birthday;
+        $editTutor->address = $request->address;
+        $editTutor->phone = $request->phone;
+        $editTutor->level = $request->level;
+        $editTutor->school = $request->school;
+        $editTutor->subject = $request->subject;
+        $editTutor->time = $request->time;
+        $editTutor->salary = $request->salary;
+        
+        if ($request->filename) {
+            $file_name = $request->file('filename')->getClientOriginalName();
+            $file = $request->file('filename');
+            $file->move('images', $file_name);
+            $editTutor->picture = $file_name;
+        }
+
+        $editTutor->user->username = $request->username;
+        $editTutor->user->password = bcrypt($request->password);
+
+        if ($editTutor->save() && $editTutor->user->save()) { 
+            session()->flash('success', 'Chỉnh sửa thành công!');
+            return redirect('tutor');
+        } else {
+            echo "Chỉnh sửa thất bại";
+        }
     }
 
     /**
@@ -80,6 +159,14 @@ class TutorController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $deleteTutor = Tutors::where('delete_flag', 0)->find($id);
+        $deleteTutor->user->delete_flag = 1;
+        $deleteTutor->delete_flag = 1;
+        if ( ($deleteTutor->save()) && ($deleteTutor->user->save()) ) {
+            session()->flash('success', 'Đã xóa thành công!');
+            return redirect('tutor');
+        } else {
+            echo "Xóa thất bại";
+        }
     }
 }

@@ -11,13 +11,10 @@
 |
 */
 Route::get('/', [
-    'as' => 'home',
+    'as' => 'index',
     'uses' => 'Pages\DashboardController@Index'
 ]);
-Route::get('/home', [
-    'as' => 'home',
-    'uses' => 'Pages\DashboardController@Index'
-]);
+
 // Route::get('/','Pages/DashboardController@Index');
 
 Route::get('/log-in', [
@@ -25,10 +22,10 @@ Route::get('/log-in', [
     'uses' => 'Auth\LoginController@getLogin'
 ]);
 
-Route::post('/log-in', [
-    'as' => 'login',
-    'uses' => 'Auth\LoginController@postLogin',
-]);
+// Route::post('/login', [
+//     'as' => 'login',
+//     'uses' => 'Auth\LoginController@login',
+// ]);
 
 Route::post('log-out', [
     'as' => 'logout',
@@ -49,6 +46,13 @@ Route::resource('post', 'Pages\PostController');
 
 Route::resource('tutor', 'Pages\TutorController');
 
+
+
+Route::get('/dangkygiasu', function () {
+    return view('dangkygiasu');
+});
+// Route::get('controller', GiaSuDangBai@dangBai);
+
 // Route::get('/dangkygiasu', function () {
 //     return view('dangkygiasu');
 // });
@@ -64,10 +68,3 @@ Route::resource('tutor', 'Pages\TutorController');
 // Route::get('/giasu', function () {
 //     return view('giasu');
 // });
-// Đăng ký thành viên
-Route::get('register', 'Auth\RegisterController@getRegister');
-Route::post('register', 'Auth\RegisterController@postRegister');
-
-Route::get('/mk', function() {
-    echo bcrypt('123456'); 
-});

@@ -21,6 +21,16 @@
 			<!-- Blog Area -->
 			<div class="col-md-8">
 				<div class="blog-lg-area-left">
+					@if (session()->has('success'))
+				    <div id="alert-message">
+			        <strong class="alert-success">{{ session('success') }}</strong>
+				    </div>
+						<script type="text/javascript">
+							setTimeout(function(){
+								document.getElementById("alert-message").innerHTML = '';
+							}, 2000);
+						</script>
+					@endif
 					<ul class="post-list row">
 						@foreach($posts as $post)
 							<li class="post-item col-md-6">

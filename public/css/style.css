@@ -1,0 +1,40 @@
+.form-post {
+  margin: 20px 0;
+}
+.post-item {
+  list-style-type: none;
+  box-sizing: border-box;
+  padding: 8px;
+}
+.post-item p {
+  margin: 0;
+  line-height: 22px;
+}
+.btn-post {
+  background: #006799;
+  border: 1px solid #006799;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+.link-edit,
+.link-edit:hover {
+  color: #fff;
+}
+.profile-title {
+  display: block;
+  /*text-align: center;*/
+  padding: 10px;
+  border-bottom: 1px solid #0073aa;
+}
+.block-center {
+  display: block;
+  margin: 0 auto;
+}
+.profile-image {
+  margin-top: 50px;
+}
+.alert-success {
+  padding: 10px 20px;
+  display: block;
+}
