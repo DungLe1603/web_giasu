@@ -1,6 +1,7 @@
 @extends('masterpage')
 @section('content')
 @include('page.slider')
+
 <div class="Service-section">
 	<div class="container">	
 		<div class="row">

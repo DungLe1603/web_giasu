@@ -22,10 +22,10 @@ Route::get('/log-in', [
     'uses' => 'Auth\LoginController@getLogin'
 ]);
 
-// Route::post('/login', [
-//     'as' => 'login',
-//     'uses' => 'Auth\LoginController@login',
-// ]);
+Route::post('/login', [
+    'as' => 'login',
+    'uses' => 'Auth\LoginController@login',
+]);
 
 Route::post('log-out', [
     'as' => 'logout',

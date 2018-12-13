@@ -29,16 +29,11 @@ class LoginController extends Controller
 
     public function getLogin()
     {
-        // if (Auth::guard()->check()) {
-        //     return back();
-        // }
         return view('dangnhap');
     }
+
     public function postLogin(Request $req)
     {
-        // echo("Chuyển view thành công");
-        // dd($req);
-        // ví dụ thôi nha!
         // $this->validate($req,
         //     [
         //         'username'=>'required|username',
@@ -56,10 +51,10 @@ class LoginController extends Controller
             'password'=>$req->password
         );
         if (Auth::attempt($credentials)){
-            return redirect()->back()->with(['flag'=>'success','message'=>'dang nhap thanh cong']);
+            return redirect('/');
         }
         else{
-            return redirect()->back()->with(['flag'=>'danger','message'=>'dang nhap khong thanh cong']);
+            return redirect()->back()->with(['flag'=>'danger','message'=>'Đăng nhập thất bại, vui lòng thử lại!']);
         }
     }
 }
