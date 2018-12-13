@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Pages;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Posts;
+use App\Post;
 
 class PostController extends Controller
 {
@@ -15,7 +15,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Posts::where('delete_flag', 0)
+        $posts = Post::where('delete_flag', 0)
                         ->orderBy('id', 'desc') ->paginate(4);
         return view('post\baidang', compact('posts'));
     }
@@ -38,7 +38,7 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        $createPost = new Posts;
+        $createPost = new Post;
         $createPost->parent_name = $request->parent_name;
         $createPost->address = $request->address;
         $createPost->phone = $request->phone;
@@ -75,7 +75,7 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        $post = Posts::find($id);
+        $post = Post::find($id);
         return view('post\suabaidang', compact('post'));
     }
 
@@ -88,7 +88,7 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $editPost = Posts::where('delete_flag', 0)->find($id);
+        $editPost = Post::where('delete_flag', 0)->find($id);
         $editPost->parent_name = $request->parent_name;
         $editPost->address = $request->address;
         $editPost->phone = $request->phone;
@@ -114,7 +114,7 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        $deletePost = Posts::where('delete_flag', 0)->find($id);
+        $deletePost = Post::where('delete_flag', 0)->find($id);
         $deletePost->delete_flag = 1;
         if ($deletePost->save()) {
             session()->flash('success', 'Đã xóa thành công!');

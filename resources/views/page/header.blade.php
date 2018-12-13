@@ -9,17 +9,23 @@
     height: 50px;
   }
   .profile-info {
-    min-width: 150px;
-    padding: 10px 20px;
+    /*min-width: 150px;*/
+    padding: 10px 0;
   }
   .header-padding {
     padding: 20px 0;
   }
+  .border-top {
+    border-top: 1px solid #fff;
+  }
+  .menu-profile {
+    padding-right: 20px;
+  }
 </style>
     <section class="top-header-widget">
-        <div class="header-padding container">
+        <div class="container">
             <div class="row">
-                <div class="col-xs-12 col-sm-8 col-md-7 top-header">
+                <div class="header-padding col-xs-12 col-sm-8 col-md-7 top-header">
                     <div id="top-header-sidebar-left" class="top-header-sidebar">
                        <i class="fa fa-globe" "=""></i> giasudanang.udn.vn - Uy tín, Chất lượng, Hiệu quả
                     </div>
@@ -27,20 +33,22 @@
                 <div class="col-xs-12 col-sm-4 col-md-5 top-header">
                     <div id="top-header-sidebar-right" class="top-header-sidebar pull-right">
                       @if(Auth::user())
-                        @if(Auth::user()->username = 'admin')
+                        @if(Auth::user()->username == 'admin')
                           <span>Xin chào Admin</span>
                         @else
                           <ul class="navbar-nav ml-auto">                        
-                            <li class="nav-item dropdown">
+                            <li class="text-uppercase nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                  <img src="" alt="Ảnh đại diện" class="profile-img ">
-                                  <span>{{Auth::user()->username}}</span>
+                                  <img src="images/{{Auth::user()->tutor->picture}}" alt="Ảnh đại diện" class="profile-img ">
+                                  <span>{{Auth::user()->tutor->name}}</span>
                                   <span class="caret"></span>
                                 </a>
 
                                 <div class="profile-info dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                  <a class="dropdown-item" href="#">Thông tin cá nhân</a>
-                                  <a href="{!! asset('/log-out') !!}">ĐĂNG XUẤT</a>
+                                  <ul class="menu-profile">
+                                    <li><a href="tutor/{{Auth::user()->id}}/edit">Thông tin cá nhân</a></li>
+                                    <li class="border-top"><a href="{!! asset('/log-out') !!}">Đăng xuất</a></li>
+                                  </ul>
                                 </div>
                             </li>
                           </ul>

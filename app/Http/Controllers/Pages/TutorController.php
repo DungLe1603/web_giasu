@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Pages;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Tutors;
+use App\Tutor;
 use App\User;
-use App\Genders;
+use App\Gender;
 use File, Input;
 
 class TutorController extends Controller
@@ -18,7 +18,7 @@ class TutorController extends Controller
      */
     public function index()
     {
-        $tutors = Tutors::where('delete_flag', 0)->paginate(4);
+        $tutors = Tutor::where('delete_flag', 0)->paginate(4);
         return view('tutor\giasu', compact('tutors'));        
     }
 
@@ -29,7 +29,7 @@ class TutorController extends Controller
      */
     public function create()
     {
-        $genders = Genders::all();
+        $genders = Gender::all();
         return view('tutor\dangkygiasu', compact('genders'));
     }
 
@@ -58,7 +58,7 @@ class TutorController extends Controller
         // ]);
 
 
-        $tutors = new Tutors();
+        $tutors = new Tutor();
         $tutors->name = $request->name;
         $tutors->gender_id = $request->gender_id;
         $tutors->birthday = $request->birthday;
@@ -95,7 +95,7 @@ class TutorController extends Controller
      */
     public function show($id)
     {
-       $tutor = Tutors::find($id);
+       $tutor = Tutor::find($id);
        return view('tutor\chitietgiasu', compact('tutor'));
     }
 
@@ -107,7 +107,7 @@ class TutorController extends Controller
      */
     public function edit($id)
     {
-        $tutor = Tutors::find($id);
+        $tutor = Tutor::find($id);
         return view('tutor\chinhsuagiasu', compact('tutor'));
     }
 
@@ -120,7 +120,7 @@ class TutorController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $editTutor = Tutors::where('delete_flag', 0)->find($id);
+        $editTutor = Tutor::where('delete_flag', 0)->find($id);
 
         $editTutor->name = $request->name;
         $editTutor->gender_id = $request->gender_id;
@@ -159,7 +159,7 @@ class TutorController extends Controller
      */
     public function destroy($id)
     {
-        $deleteTutor = Tutors::where('delete_flag', 0)->find($id);
+        $deleteTutor = Tutor::where('delete_flag', 0)->find($id);
         $deleteTutor->user->delete_flag = 1;
         $deleteTutor->delete_flag = 1;
         if ( ($deleteTutor->save()) && ($deleteTutor->user->save()) ) {

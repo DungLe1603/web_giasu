@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Genders extends Model
+class Gender extends Model
 {
   protected $fillable = [
   '	id',
@@ -15,7 +15,7 @@ class Genders extends Model
   ];
 
   public function tutors() {
-    return $this->hasMany('App\Tutors', 'tutor_id');
+    return $this->hasMany('App\Tutor', 'tutor_id');
   }
 
   // public function posts() {

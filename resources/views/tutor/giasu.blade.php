@@ -48,12 +48,15 @@
 								</ul>
 								<div style="color:#999;">
 									<button class="btn-post"><a href="tutor/{{$tutor->id}}/" class="link-edit">Chi tiết</a></button>
-									<button class="btn-post"><a href="tutor/{{$tutor->id}}/edit" class="link-edit"> Chỉnh sửa</a></button>
-
-									{{ Form::model($tutor, ['url' => ['/tutor', $tutor["id"]], 'method'=> 'DELETE', 'enctype' => 'multipart/form-data', 'style' => 'display: inline-block;',
-									 'onsubmit' => "return confirm('Bạn có muốn xóa gia sư này không?');"])}}
-										<button type="submit"  class="btn-post">Xóa</button>
-									{{ Form::close()}}
+									@if(Auth::user()->roleAdmin() || Auth::user()->id === $tutor->id )
+										<button class="btn-post"><a href="tutor/{{$tutor->id}}/edit" class="link-edit"> Chỉnh sửa</a></button>
+									@endif
+									@if(Auth::user()->roleAdmin())
+										{{ Form::model($tutor, ['url' => ['/tutor', $tutor["id"]], 'method'=> 'DELETE', 'enctype' => 'multipart/form-data', 'style' => 'display: inline-block;',
+										 'onsubmit' => "return confirm('Bạn có muốn xóa gia sư này không?');"])}}
+											<button type="submit"  class="btn-post">Xóa</button>
+										{{ Form::close()}}
+									@endif
 								</div>
 							</div>
 						</div>
