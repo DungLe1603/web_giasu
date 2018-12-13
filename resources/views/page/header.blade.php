@@ -1,4 +1,18 @@
-<!-- ToanHN: Thêm phần số điện thoại -->
+<style type="text/css">
+  .pull-right {
+    float: right;
+  }
+  .profile-img {
+    border-radius: 50%;
+    margin: 0 10px;
+    width: 50px;
+    height: 50px;
+  }
+  .profile-info {
+    min-width: 150px;
+    padding: 10px 20px;
+  }
+</style>
     <section class="top-header-widget">
         <div class="container">
             <div class="row">
@@ -8,15 +22,25 @@
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-4 col-md-5 top-header">
-                    <div id="top-header-sidebar-right" class="top-header-sidebar">
-                        <i class="fa fa-phone-square">ảnh đại diện</i>
-                        <a href="#">Tên User</a>
+                    <div id="top-header-sidebar-right" class="top-header-sidebar pull-right">
+                      {{-- <i class="fa fa-phone-square">?nh d?i di?n</i> --}}
+                      <ul class="navbar-nav ml-auto">                        
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                              <img src="" alt="Ảnh đại diện" class="profile-img ">
+                              Tên người dùng<span class="caret"></span>
+                            </a>
+
+                            <div class="profile-info dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                              <a class="dropdown-item" href="#">Thông tin cá nhân</a>
+                            </div>
+                        </li>
+                      </ul>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-<!-- ToanHN: end Thêm phần số điện thoại -->
 <!--Logo & Menu Section-->	
 <nav class="navbar navbar-default">
 	<div class="container">
