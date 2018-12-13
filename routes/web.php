@@ -15,17 +15,20 @@ Route::get('/', [
     'uses' => 'Pages\DashboardController@Index'
 ]);
 
-// Route::get('/','Pages/DashboardController@Index');
+Route::get('/home', [
+    'as' => 'home',
+    'uses' => 'Pages\DashboardController@index',
+]);
 
 Route::get('/log-in', [
     'as' => 'login',
     'uses' => 'Auth\LoginController@getLogin'
 ]);
 
-// Route::post('/login', [
-//     'as' => 'login',
-//     'uses' => 'Auth\LoginController@login',
-// ]);
+Route::post('/log-in', [
+    'as' => 'login',
+    'uses' => 'Auth\LoginController@postLogin',
+]);
 
 Route::post('log-out', [
     'as' => 'logout',

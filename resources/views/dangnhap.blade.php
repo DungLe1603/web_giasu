@@ -13,16 +13,22 @@
       <div class="container">
     <div class="row">
       <div class="col-md-4 login-sec">
-          <h2 class="text-center">Đăng nhập</h2>
+          <h2 class="text-center">Ðăng nhập</h2>
+          <form class="login-form" action="{{ route('login')}}" method="post">
+            @csrf
+            @if(Session::has('flag'))
+              <div class="alert alert-{{Session::get('flag')}}">{{Session::get('message')}}</div>
+            @endif
+
           <form class="login-form" action="{!! asset('/') !!}">
             <div class="form-group">
-              <label for="exampleInputEmail1" >Tên đăng nhập</label>
-              <input type="text" class="form-control" placeholder="">
+              <label for="username" >Tên đăng nhập</label>
+              <input name="username" type="text" class="form-control" placeholder="">
               
             </div>
             <div class="form-group">
-              <label for="exampleInputPassword1" >Mật khẩu</label>
-              <input type="password" class="form-control" placeholder="">
+              <label for="password" >Mật khẩu</label>
+              <input name="password" type="password" class="form-control" placeholder="">
             </div>
             
             
