@@ -17,11 +17,10 @@
                                   <span>{{Auth::user()->tutor->name}}</span>
                                   <span class="caret"></span>
                                 </a>
-
                                 <div class="profile-info dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                   <ul class="menu-profile">
                                     <li><a href="tutor/{{Auth::user()->id}}/edit">Thông tin cá nhân</a></li>
-                                    <li class="border-top"><a href="{!! asset('/log-out') !!}">Đăng xuất</a></li>
+                                    <li class="border-top"><a href="/log-out" >Đăng xuất</a></li>
                                   </ul>
                                 </div>
                             </li>

@@ -30,9 +30,9 @@ Route::post('/log-in', [
     'uses' => 'Auth\LoginController@postLogin',
 ]);
 
-Route::post('log-out', [
+Route::get('/log-out', [
     'as' => 'logout',
-    'Auth\LogoutController@postLogout'
+    'uses' => 'Auth\LogoutController@postLogout'
 ]);
 
 Route::get('/contact', [
@@ -53,9 +53,9 @@ Route::resource('tutor', 'Pages\TutorController');
 
 
 
-Route::get('/dangkygiasu', function () {
-    return view('dangkygiasu');
-});
+// Route::get('/dangkygiasu', function () {
+//     return view('dangkygiasu');
+// });
 // Route::get('controller', GiaSuDangBai@dangBai);
 
 // Route::get('/dangkygiasu', function () {
