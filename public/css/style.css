@@ -47,7 +47,10 @@
 .tab-item:active {
   background: #f6f7f9;
 }
-.form-reset-pass {
+.form-post {
   padding-bottom: 20px;
   background: #fbfbfb;
+}
+.form-profile-pass {
+  padding: 20px;
 }
