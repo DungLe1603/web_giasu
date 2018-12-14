@@ -140,10 +140,7 @@ class TutorController extends Controller
             $editTutor->picture = $file_name;
         }
 
-        $editTutor->user->username = $request->username;
-        $editTutor->user->password = bcrypt($request->password);
-
-        if ($editTutor->save() && $editTutor->user->save()) { 
+        if ($editTutor->save()) { 
             session()->flash('success', 'Chỉnh sửa thành công!');
             return redirect('tutor');
         } else {
@@ -151,6 +148,25 @@ class TutorController extends Controller
         }
     }
 
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function changePassword(Request $request, $id)
+    {
+        $user = User::where('delete_flag', 0)->find($id);
+        dd($request->password);
+        $user->password = bcrypt($request->password);
+        if ($user->save()) {
+            session()->flash('success', 'Đổi mật khẩu thành công!');
+            return redirect('tutor');
+        } else {
+            echo "Đổi mật khẩu thất bại";
+        }
+    }
     /**
      * Remove the specified resource from storage.
      *

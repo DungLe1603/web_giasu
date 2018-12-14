@@ -120,7 +120,7 @@
 						</form>
 	        </div>
 	        <div role="tabpanel" class="tab-pane" id="password">
-	        	{{ Form::model($tutor, ['url' => ['/tutor', $tutor["id"]],'class' => 'form-reset-pass','method'=>isset($tutor["id"])?'PUT':'POST','enctype' => 'multipart/form-data', 'style' => 'color: #727272;'])}}
+	        	{{ Form::model($tutor, ['url' => ['/password', $tutor["id"]],'class' => 'form-reset-pass','method'=>'POST','enctype' => 'multipart/form-data', 'style' => 'color: #727272;'])}}
 						{{-- @dd($tutor); --}}
 							<div class="row">									
 								<div class="col-md-2"></div>

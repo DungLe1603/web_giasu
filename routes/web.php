@@ -45,6 +45,8 @@ Route::get('/introduce', [
     'uses' => 'Pages\IntroduceController@getIntroduction'
 ]);
 
+Route::post('/password/{id}', 'Pages\TutorController@changePassword');
+
 Route::resource('post', 'Pages\PostController');
 
 Route::resource('tutor', 'Pages\TutorController');
