@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Tutors extends Model
+class Tutor extends Model
 {
   protected $fillable = [
     'id',
@@ -26,9 +26,9 @@ class Tutors extends Model
     'delete_flag'      
   ];
   public function user() {
-    return $this->hasOne('App\User', 'id');
+    return $this->belongsTo('App\User', 'id');
   }
   public function gender() {
-    return $this->belongsTo('App\Genders', 'gender_id');
+    return $this->belongsTo('App\Gender', 'gender_id');
   }
 }

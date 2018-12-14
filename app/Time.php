@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Times extends Model
+class Time extends Model
 {
   protected $fillable = [
     'id',

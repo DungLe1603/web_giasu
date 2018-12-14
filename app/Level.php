@@ -4,17 +4,17 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Roles extends Model
+class Level extends Model
 {
   protected $fillable = [
     'id',
     'name',
-    'description',
     'created_at',
     'updated_at',
-    'delete_flag'      
+    'delete_flag'     
   ];
-  public function user() {
-    return $this->hasMany('App\User', 'role_id');
-  }
+
+  // public function post() {
+  //   return $this->hasMany('App\Posts', 'level_id');
+  // }
 }
