@@ -1,27 +1,4 @@
-<style type="text/css">
-  .pull-right {
-    float: right;
-  }
-  .profile-img {
-    border-radius: 50%;
-    margin: 0 10px;
-    width: 50px;
-    height: 50px;
-  }
-  .profile-info {
-    /*min-width: 150px;*/
-    padding: 10px 0;
-  }
-  .header-padding {
-    padding: 20px 0;
-  }
-  .border-top {
-    border-top: 1px solid #fff;
-  }
-  .menu-profile {
-    padding-right: 20px;
-  }
-</style>
+<link rel="stylesheet" type="text/css" href="{!! asset('css/header.css') !!}">
     <section class="top-header-widget">
         <div class="container">
             <div class="row">
@@ -33,9 +10,6 @@
                 <div class="col-xs-12 col-sm-4 col-md-5 top-header">
                     <div id="top-header-sidebar-right" class="top-header-sidebar pull-right">
                       @if(Auth::user())
-                        @if(Auth::user()->username == 'admin')
-                          <span>Xin chào Admin</span>
-                        @else
                           <ul class="navbar-nav ml-auto">                        
                             <li class="text-uppercase nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -43,18 +17,18 @@
                                   <span>{{Auth::user()->tutor->name}}</span>
                                   <span class="caret"></span>
                                 </a>
-
                                 <div class="profile-info dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                   <ul class="menu-profile">
                                     <li><a href="tutor/{{Auth::user()->id}}/edit">Thông tin cá nhân</a></li>
-                                    <li class="border-top"><a href="{!! asset('/log-out') !!}">Đăng xuất</a></li>
+                                    <li class="border-top"><a href="/log-out" >Đăng xuất</a></li>
                                   </ul>
                                 </div>
                             </li>
                           </ul>
-                        @endif
                       @else
+                        <div class="header-padding">
                          <a href="{!! asset('/log-in') !!}">ĐĂNG NHẬP</a>
+                        </div>
                       @endif
                     </div>
                 </div>

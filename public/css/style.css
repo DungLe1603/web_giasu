@@ -31,10 +31,23 @@
   display: block;
   margin: 0 auto;
 }
-.profile-image {
-  margin-top: 50px;
-}
 .alert-success {
   padding: 10px 20px;
   display: block;
+}
+.nav-tab-profile {
+  display: block;
+}
+.tab-link {
+  font-size:18px;
+}
+.tab-item {
+  padding: 0 20px;
+}
+.tab-item:active {
+  background: #f6f7f9;
+}
+.form-reset-pass {
+  padding-bottom: 20px;
+  background: #fbfbfb;
 }
