@@ -33,9 +33,6 @@
                 <div class="col-xs-12 col-sm-4 col-md-5 top-header">
                     <div id="top-header-sidebar-right" class="top-header-sidebar pull-right">
                       @if(Auth::user())
-                        @if(Auth::user()->username == 'admin')
-                          <span>Xin chào Admin</span>
-                        @else
                           <ul class="navbar-nav ml-auto">                        
                             <li class="text-uppercase nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -52,7 +49,6 @@
                                 </div>
                             </li>
                           </ul>
-                        @endif
                       @else
                          <a href="{!! asset('/log-in') !!}">ĐĂNG NHẬP</a>
                       @endif
