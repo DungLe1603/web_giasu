@@ -158,7 +158,6 @@ class TutorController extends Controller
     public function changePassword(Request $request, $id)
     {
         $user = User::where('delete_flag', 0)->find($id);
-        dd($request->password);
         $user->password = bcrypt($request->password);
         if ($user->save()) {
             session()->flash('success', 'Đổi mật khẩu thành công!');

@@ -22,6 +22,7 @@
 			<div class="col-md-8">
 				<ul class="list-inline" role="tablist">
 	        <li role="presentation" class="tab-item active"><a class="tab-link" href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Thông tin cá nhân</a></li>
+	        <li class="tab-item">|</li>
 	        <li role="presentation" class="tab-item"><a class="tab-link" href="#password" aria-controls="password" role="tab" data-toggle="tab">Đổi mật khẩu</a></li>
 	      </ul>
 	      <div class="tab-content col-md-9">
