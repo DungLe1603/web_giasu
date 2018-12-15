@@ -44,14 +44,15 @@
 								<p><strong>Số điện thoại: </strong> {{$post->phone? $post->phone : '-'}}</p>
 								<p><strong>Địa chỉ: </strong> {{$post->address? $post->address : '-'}}</p>
 								<p><strong>Yêu cầu: </strong> {{$post->requirement? $post->requirement : '-'}}</p>
-								
-								@if(Auth::user()->roleAdmin())
-									<button class="btn-post"><a href="post/{{$post->id}}/edit" class="link-edit"> Chỉnh sửa</a></button>
+								@if(Auth::user())
+									@if(Auth::user()->roleAdmin())
+										<button class="btn-post"><a href="post/{{$post->id}}/edit" class="link-edit"> Chỉnh sửa</a></button>
 
-									{{ Form::model($post, ['url' => ['/post', $post["id"]], 'method'=> 'DELETE', 'enctype' => 'multipart/form-data', 'style' => 'display: inline-block;',
-									 'onsubmit' => "return confirm('Bạn có muốn xóa suất dạy này không?');"])}}
-										<button type="submit"  class="btn-post">Xóa</button>
-									{{ Form::close()}}
+										{{ Form::model($post, ['url' => ['/post', $post["id"]], 'method'=> 'DELETE', 'enctype' => 'multipart/form-data', 'style' => 'display: inline-block;',
+										 'onsubmit' => "return confirm('Bạn có muốn xóa suất dạy này không?');"])}}
+											<button type="submit"  class="btn-post">Xóa</button>
+										{{ Form::close()}}
+									@endif
 								@endif
 								<hr>
 							</li>
