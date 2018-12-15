@@ -107,7 +107,7 @@
 				</form>
 			</div>
 			
-			
+			@include('form-error')
 
 			@include('page.sidebar')
 		</div>

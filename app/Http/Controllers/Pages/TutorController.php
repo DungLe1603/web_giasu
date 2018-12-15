@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Pages;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Requests\RegisterTutor;
 use App\Http\Controllers\Controller;
 use App\Tutor;
 use App\User;
@@ -39,7 +40,7 @@ class TutorController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(RegisterTutor $request)
     {
 
         // $this->validate($request, [
