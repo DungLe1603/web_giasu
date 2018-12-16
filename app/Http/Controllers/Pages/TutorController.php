@@ -40,23 +40,42 @@ class TutorController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(RegisterTutor $request)
+    public function store(Request $request)
     {
 
-        // $this->validate($request, [
-        //     'name' => 'required|min:3',
-        //     'address' => 'required|min:3',
-        //     'phone' => 'required|max:9',
-        //     'password' => 'required|min:3|max:32',
-        //     'repassword' => 'required|same:password',
-        //     'school' => 'required|min:3',
-        //     'subject' => 'required|min:3',
-        //     'time' => 'required|min:3',
-        //     'salary' => 'required|min:3'
+        $this->validate($request, [
+            'name' => 'required|min:3',
+            'address' => 'required|min:3',
+            'phone' => 'required|min:8|numeric',
+            'password' => 'required|min:3|max:50',
+            'repassword' => 'required|same:password',
+            'school' => 'required|min:3',
+            'subject' => 'required|min:3',
+            'time' => 'required|min:3',
+            'salary' => 'required|min:3',
 
-        // ], [
-        //     'name.required' => 'Bạn chưa nhập tên'
-        // ]);
+        ], [
+            'name.required' => 'Vui lòng nhập họ và tên',
+            'name.min' =>"Họ tên phải ít nhất 3 kí tự",
+            'phone.required' => 'Vui lòng nhập số điện thoại',
+            'phone.min' => 'số điện thoại quá ngắn', 
+            'phone.numeric' => 'Nhập sai định dạng số điện thoại',
+            'address.required' => 'Vui lòng nhập địa chỉ',
+            'address.min' => 'Địa chỉ nhà ít nhất 3 kí tự',
+            'password.required' => 'Vui lòng nhập mật khẩu',
+            'password.min' => 'Mật khẩu phải có ít nhất 3 kí tự',
+            'password.max' => 'Mật khẩu quá dài',
+            'repassword.required' => 'Vui lòng xác nhật mật khẩu',
+            'repassword.same' => 'Xác nhận mật khẩu không đúng',
+            'school.required' => 'Vui lòng nhập Trường đã hoặc đang học',
+            'school.min' => 'Nhập sai Trường',
+            'subject.required' => 'Vui lòng nhập họ và tên',
+            'subject.min' => 'Vui lòng nhập lại môn học ',
+            'time.required' => 'Vui lòng nhập họ và tên',
+            'time.min' => 'Nhập thời gian sai',
+            'salary.required' => 'Vui lòng nhập thời gian', 
+            'salary.min' => 'Nhập lương sai',
+        ]);
 
 
         $tutors = new Tutor();
@@ -123,6 +142,33 @@ class TutorController extends Controller
     {
         $editTutor = Tutor::where('delete_flag', 0)->find($id);
 
+        $this->validate($request, [
+            'name' => 'required|min:3',
+            'address' => 'required|min:3',
+            'phone' => 'required|min:9|numeric',
+            'school' => 'required|min:3',
+            'subject' => 'required|min:3',
+            'time' => 'required|min:3',
+            'salary' => 'required|min:3',
+
+        ], [
+            'name.required' => 'Vui lòng nhập họ và tên',
+            'name.min' =>"Họ tên phải ít nhất 3 kí tự",
+            'phone.required' => 'Vui lòng nhập số điện thoại',
+            'phone.min' => 'số điện thoại quá ngắn', 
+            'phone.numeric' => 'Nhập sai định dạng số điện thoại',
+            'address.required' => 'Vui lòng nhập địa chỉ',
+            'address.min' => 'Địa chỉ nhà ít nhất 3 kí tự',
+            'school.required' => 'Vui lòng nhập Trường đã hoặc đang học',
+            'school.min' => 'Nhập sai Trường',
+            'subject.required' => 'Vui lòng nhập họ và tên',
+            'subject.min' => 'Vui lòng nhập lại môn học ',
+            'time.required' => 'Vui lòng nhập họ và tên',
+            'time.min' => 'Nhập thời gian sai',
+            'salary.required' => 'Vui lòng nhập thời gian', 
+            'salary.min' => 'Nhập lương sai',
+        ]);
+
         $editTutor->name = $request->name;
         $editTutor->gender_id = $request->gender_id;
         $editTutor->birthday = $request->birthday;
@@ -159,6 +205,21 @@ class TutorController extends Controller
     public function changePassword(Request $request, $id)
     {
         $user = User::where('delete_flag', 0)->find($id);
+        $this->validate($request, [
+            'oldpassword' => 'required|min:3|max:50',
+            'password' => 'required|min:3|max:50',
+            'repassword' => 'required|same:password',
+
+        ], [
+            'oldpassword.required' => 'Vui lòng nhập mật khẩu cũ',
+            'oldpassword.min' => 'Nhập sai mật khẩu cũ',
+            'oldpassword.max' => 'Nhập sai mật khẩu cũ',
+            'password.required' => 'Vui lòng nhập mật khẩu',
+            'password.min' => 'Mật khẩu mới phải có ít nhất 3 kí tự',
+            'password.max' => 'Mật khẩu mới quá dài',
+            'repassword.required' => 'Vui lòng xác nhật mật khẩu',
+            'repassword.same' => 'Xác nhận mật khẩu không đúng',
+        ]);
         $user->password = bcrypt($request->password);
         if ($user->save()) {
             session()->flash('success', 'Đổi mật khẩu thành công!');

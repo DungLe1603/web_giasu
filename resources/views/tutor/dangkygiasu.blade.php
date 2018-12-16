@@ -18,6 +18,7 @@
 <div class="clearfix"></div><!-- Blog Section with Sidebar -->
 <div class="page-builder">
 	<div class="container">
+		@include('form-error')
 		<div class="row">
 			<!-- Blog Area -->
 			<div class="col-md-8">
@@ -107,7 +108,7 @@
 				</form>
 			</div>
 			
-			@include('form-error')
+			
 
 			@include('page.sidebar')
 		</div>

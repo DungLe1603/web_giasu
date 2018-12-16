@@ -38,6 +38,35 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'parent_name' => 'required|min:3',
+            'address' => 'required|min:3',
+            'phone' => 'required|min:8|numeric',
+            'subject' => 'required|min:3',
+            'number_student' => 'required|min:1|max:100',
+            'number_time' => 'required|min:1|max:100', 
+            'time' => 'required|min:3',
+            'payment' => 'required|min:3',
+
+        ], [
+            'parent_name.required' => 'Vui lòng nhập họ và tên',
+            'parent_name.min' =>"Họ tên phải ít nhất 3 kí tự",
+            'phone.required' => 'Vui lòng nhập số điện thoại',
+            'phone.min' => 'số điện thoại quá ngắn', 
+            'phone.numeric' => 'Nhập sai định dạng số điện thoại',
+            'address.required' => 'Vui lòng nhập địa chỉ',
+            'address.min' => 'Địa chỉ nhà ít nhất 3 kí tự',
+            'subject.required' => 'Vui lòng nhập họ và tên',
+            'subject.min' => 'Vui lòng nhập lại môn học ',
+            'number_time.required' => 'Vui lòng nhập số buổi/tuần',
+            'number_time.min' => 'Nhập số buổi/tuần ít nhất 3 kí tự', 
+            'number_time.max' => 'Nhập số buổi/tuần tối đa 100 kí tự', 
+            'time.required' => 'Vui lòng nhập họ và tên',
+            'time.min' => 'Nhập thời gian sai',
+            'payment.required' => 'Vui lòng nhập thời gian', 
+            'payment.min' => 'Nhập lương sai',
+        ]);
+
         $createPost = new Post;
         $createPost->parent_name = $request->parent_name;
         $createPost->address = $request->address;
@@ -89,6 +118,36 @@ class PostController extends Controller
     public function update(Request $request, $id)
     {
         $editPost = Post::where('delete_flag', 0)->find($id);
+
+        $this->validate($request, [
+            'parent_name' => 'required|min:3',
+            'address' => 'required|min:5',
+            'phone' => 'required|min:8|numeric',
+            'subject' => 'required|min:3',
+            'number_student' => 'required|min:1|max:100',
+            'number_time' => 'required|min:1|max:100', 
+            'time' => 'required|min:3',
+            'payment' => 'required|min:3',
+
+        ], [
+            'parent_name.required' => 'Vui lòng nhập họ và tên',
+            'parent_name.min' =>"Họ tên phải ít nhất 5 kí tự",
+            'phone.required' => 'Vui lòng nhập số điện thoại',
+            'phone.min' => 'số điện thoại quá ngắn', 
+            'phone.numeric' => 'Nhập sai định dạng số điện thoại',
+            'address.required' => 'Vui lòng nhập địa chỉ',
+            'address.min' => 'Địa chỉ nhà ít nhất 3 kí tự',
+            'subject.required' => 'Vui lòng nhập họ và tên',
+            'subject.min' => 'Vui lòng nhập lại môn học ',
+            'number_time.required' => 'Vui lòng nhập số buổi/tuần',
+            'number_time.min' => 'Nhập số buổi/tuần ít nhất 3 kí tự', 
+            'number_time.max' => 'Nhập số buổi/tuần tối đa 100 kí tự', 
+            'time.required' => 'Vui lòng nhập họ và tên',
+            'time.min' => 'Nhập thời gian sai',
+            'payment.required' => 'Vui lòng nhập thời gian', 
+            'payment.min' => 'Nhập lương sai',
+        ]);
+
         $editPost->parent_name = $request->parent_name;
         $editPost->address = $request->address;
         $editPost->phone = $request->phone;
