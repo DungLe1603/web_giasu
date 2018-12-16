@@ -157,6 +157,7 @@ class TutorController extends Controller
      */
     public function changePassword(Request $request, $id)
     {
+
         $user = User::where('delete_flag', 0)->find($id);
         $user->password = bcrypt($request->password);
         if ($user->save()) {
