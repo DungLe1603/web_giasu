@@ -204,6 +204,7 @@ class TutorController extends Controller
      */
     public function changePassword(Request $request, $id)
     {
+
         $user = User::where('delete_flag', 0)->find($id);
         $this->validate($request, [
             'oldpassword' => 'required|min:3|max:50',
