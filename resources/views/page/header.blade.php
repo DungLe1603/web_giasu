@@ -1,3 +1,4 @@
+
 <link rel="stylesheet" type="text/css" href="{!! asset('css/header.css') !!}">
     <section class="top-header-widget">
         <div class="container">
@@ -13,13 +14,14 @@
                           <ul class="navbar-nav ml-auto">                        
                             <li class="text-uppercase nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                  <img src="images/{{Auth::user()->tutor->picture}}" alt="Ảnh đại diện" class="profile-img ">
+                                  <img src="{!! Auth::user()->tutor->picture ? asset('images/'. Auth::user()->tutor->picture) : asset('images/default-image.jpg') !!}" alt="Ảnh đại diện" class="profile-img ">
                                   <span>{{Auth::user()->tutor->name}}</span>
                                   <span class="caret"></span>
                                 </a>
                                 <div class="profile-info dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                   <ul class="menu-profile">
-                                    <li><a href="tutor/{{Auth::user()->id}}/edit">Thông tin cá nhân</a></li>
+
+                                    <li><a href="{{ route('tutor.edit', Auth::user()->id) }}">Thông tin cá nhân</a></li>
                                     <li class="border-top"><a href="/log-out" >Đăng xuất</a></li>
                                   </ul>
                                 </div>
