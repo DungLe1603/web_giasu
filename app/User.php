@@ -48,4 +48,14 @@ class User extends Authenticatable
             return true;
         return false;
     }
+
+    public function roleUser(){
+        $has_role_user = $this->whereHas('role',function($query){
+            $query->where('role_id', '2');
+        })->where('id',$this->id)->get();
+        
+        if(count($has_role_user)>0)
+            return true;
+        return false;
+    }
 }
