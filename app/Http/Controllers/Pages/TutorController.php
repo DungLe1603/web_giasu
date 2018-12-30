@@ -7,6 +7,7 @@ use App\Http\Controllers\Requests\RegisterTutor;
 use App\Http\Controllers\Controller;
 use App\Tutor;
 use App\User;
+use Illuminate\Support\Facades\Auth;
 use App\Gender;
 use File, Input;
 
@@ -49,6 +50,7 @@ class TutorController extends Controller
             'phone' => 'required|min:8|numeric',
             'password' => 'required|min:3|max:50',
             'repassword' => 'required|same:password',
+            'level' => 'required|min:3|max:80',
             'school' => 'required|min:3',
             'subject' => 'required|min:3',
             'time' => 'required|min:3',
@@ -67,6 +69,9 @@ class TutorController extends Controller
             'password.max' => 'Mật khẩu quá dài',
             'repassword.required' => 'Vui lòng xác nhật mật khẩu',
             'repassword.same' => 'Xác nhận mật khẩu không đúng',
+            'level.required' => 'Vui lòng nhập bạn trường "hiện là"',
+            'level.min' => 'Trường"hiện là" phải nhập ít nhất 3 kí tự', 
+            'level.max' => 'Trường"hiện là" nhập tối đa 80 kí tự', 
             'school.required' => 'Vui lòng nhập Trường đã hoặc đang học',
             'school.min' => 'Nhập sai Trường',
             'subject.required' => 'Vui lòng nhập họ và tên',
@@ -147,6 +152,7 @@ class TutorController extends Controller
             'address' => 'required|min:3',
             'phone' => 'required|min:9|numeric',
             'school' => 'required|min:3',
+            'level' => 'required|min:3|max:80',
             'subject' => 'required|min:3',
             'time' => 'required|min:3',
             'salary' => 'required|min:3',
@@ -161,6 +167,9 @@ class TutorController extends Controller
             'address.min' => 'Địa chỉ nhà ít nhất 3 kí tự',
             'school.required' => 'Vui lòng nhập Trường đã hoặc đang học',
             'school.min' => 'Nhập sai Trường',
+            'level.required' => 'Vui lòng nhập bạn trường "hiện là"',
+            'level.min' => 'Trường"hiện là" phải nhập ít nhất 3 kí tự', 
+            'level.max' => 'Trường"hiện là" nhập tối đa 80 kí tự', 
             'subject.required' => 'Vui lòng nhập họ và tên',
             'subject.min' => 'Vui lòng nhập lại môn học ',
             'time.required' => 'Vui lòng nhập họ và tên',
@@ -206,21 +215,40 @@ class TutorController extends Controller
     {
 
         $user = User::where('delete_flag', 0)->find($id);
-        $this->validate($request, [
-            'oldpassword' => 'required|min:3|max:50',
-            'password' => 'required|min:3|max:50',
-            'repassword' => 'required|same:password',
+        // dd(\Hash::check($request->password, $user->password));
+        if (!Auth::user()->roleAdmin()) {
+            $this->validate($request, [
 
-        ], [
-            'oldpassword.required' => 'Vui lòng nhập mật khẩu cũ',
-            'oldpassword.min' => 'Nhập sai mật khẩu cũ',
-            'oldpassword.max' => 'Nhập sai mật khẩu cũ',
-            'password.required' => 'Vui lòng nhập mật khẩu',
-            'password.min' => 'Mật khẩu mới phải có ít nhất 3 kí tự',
-            'password.max' => 'Mật khẩu mới quá dài',
-            'repassword.required' => 'Vui lòng xác nhật mật khẩu',
-            'repassword.same' => 'Xác nhận mật khẩu không đúng',
-        ]);
+                'oldpassword' => 'required|min:3|max:50',
+                'password' => 'required|min:3|max:50',
+                'repassword' => 'required|same:password',
+
+            ], [
+                'oldpassword.required' => 'Vui lòng nhập mật khẩu cũ',
+                'oldpassword.min' => 'Nhập sai mật khẩu cũ',
+                'oldpassword.max' => 'Nhập sai mật khẩu cũ',
+                'password.required' => 'Vui lòng nhập mật khẩu',
+                'password.min' => 'Mật khẩu mới phải có ít nhất 3 kí tự',
+                'password.max' => 'Mật khẩu mới quá dài',
+                'repassword.required' => 'Vui lòng xác nhật mật khẩu',
+                'repassword.same' => 'Xác nhận mật khẩu không đúng',
+            ]);
+        }
+        else{
+            $this->validate($request, [
+
+                'password' => 'required|min:3|max:50',
+                'repassword' => 'required|same:password',
+
+            ], [
+                'password.required' => 'Vui lòng nhập mật khẩu',
+                'password.min' => 'Mật khẩu mới phải có ít nhất 3 kí tự',
+                'password.max' => 'Mật khẩu mới quá dài',
+                'repassword.required' => 'Vui lòng xác nhật mật khẩu',
+                'repassword.same' => 'Xác nhận mật khẩu không đúng',
+            ]);
+        }
+        
         $user->password = bcrypt($request->password);
         if ($user->save()) {
             session()->flash('success', 'Đổi mật khẩu thành công!');
