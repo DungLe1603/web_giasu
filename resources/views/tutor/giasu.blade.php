@@ -34,7 +34,7 @@
 						<div class="row" style="margin-bottom:10px;">
 							<div class="col-md-4 col-sm-4 col-xs-12">
 								<a href="tutor/{{$tutor->id}}/" class="thumbnail thumbnail-nguoigiupviec">
-									<img src="./images/{{$tutor->picture}}" alt="Hình ảnh gia sư">
+									<img src="./images/{{ $tutor->picture ? $tutor->picture : 'default-image.jpg'}}" alt="Hình ảnh gia sư">
 								</a>
 							</div>
 							<div class="col-md-8 col-sm-8 col-xs-12">

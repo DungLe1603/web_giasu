@@ -97,7 +97,7 @@
 								    <input type="text" value="{{ isset($tutor->salary) ? $tutor->salary : ""}}" class="form-control" name="salary">
 								  </div>
 								  <div class="profile-image">
-								  	<img height="274px" width="200px" name="picture" alt="Hình ảnh của bạn" class="block-center" src="/images/{{$tutor->picture}}" id="output" >
+								  	<img height="300px" width="250px" name="picture" alt="Hình ảnh của bạn" class="block-center" src="/images/{{ $tutor->picture ? $tutor->picture : 'default-image.jpg'}}" id="output" >
 								  	<input type="file" name="filename" id="filename" accept="image/gif, image/jpeg, image/png" onchange="loadFile(event)">
 								  	<script>
 		  								var loadFile = function(event) {

@@ -213,6 +213,7 @@ class TutorController extends Controller
      */
     public function changePassword(Request $request, $id)
     {
+
         $user = User::where('delete_flag', 0)->find($id);
         // dd(\Hash::check($request->password, $user->password));
         if (!Auth::user()->roleAdmin()) {
