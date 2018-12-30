@@ -26,11 +26,10 @@
 	        <li class="tab-item">|</li>
 	        <li role="presentation" class="tab-item"><a class="tab-link" href="#password" aria-controls="password" role="tab" data-toggle="tab">Đổi mật khẩu</a></li>
 	      </ul>
+	      @include('page.form-error')
 	      <div class="tab-content">
 	        <div role="tabpanel" class="tab-pane active" id="profile">
-	        			@include('form-error')
 						{{ Form::model($tutor, ['url' => ['/tutor', $tutor["id"]],'class' => 'form-profile-pass form-post','method'=>isset($tutor["id"])?'PUT':'POST','enctype' => 'multipart/form-data', 'style' => 'color: #727272;'])}}
-						{{-- @dd($tutor); --}}
 							<div class="row">
 								<div class="col-md-6">
 								  <div class="form-group">
@@ -118,37 +117,24 @@
 							 	<button type="reset" class="btn-post">Làm mới</button>
 							 	<button type="button" class="btn-post"><a href="/tutor" class="link-edit">Trở về </a></button>
 							</div>
-						  {{-- {{ csrf_field() }} --}}
-						</form>
+						</form>{!! Form::close() !!}
 	        </div>
 	        <div role="tabpanel" class="tab-pane" id="password">
-	        	@include('form-error')
 	        	{{ Form::model($tutor, ['url' => ['/password', $tutor["id"]],'class' => 'form-post','method'=>'POST','enctype' => 'multipart/form-data', 'style' => 'color: #727272;'])}}
-						{{-- @dd($tutor); --}}
 							<div class="row">									
 								<div class="col-md-2"></div>
 								<div class="col-md-8">
 									<h4><strong class="text-uppercase"></strong></h4>
-								  
-								  	@if(Auth::user())
-										@if(Auth::user()->roleUser())
+										@if(!Auth::user()->roleAdmin())
 											<div class="form-group">
-								    			<label for="password">Mật khẩu cũ:</label>
-								    			<input type="password" class="form-control" name="oldpassword">
-								  			</div>
-								  			<div class="form-group">
-								    			<label for="password">Mật khẩu mới:</label>
-								    			<input type="password" class="form-control" name="password">
-								  			</div>
-								  			
+							    			<label for="password">Mật khẩu cũ:</label>
+							    			<input type="password" class="form-control" name="oldpassword">
+							  			</div>								  			
 										@endif
-										@if(Auth::user()->roleAdmin())
-											<div class="form-group">
-								    			<label for="password">Mật khẩu mới:</label>
-								    			<input type="password" class="form-control" name="password">
-								  			</div>
-										@endif
-									@endif
+										<div class="form-group">
+							    			<label for="password">Mật khẩu mới:</label>
+							    			<input type="password" class="form-control" name="password">
+							  			</div>
 								  	<div class="form-group">
 								    	<label for="repassword">Xác nhận mật khẩu:</label>
 								    	<input type="password" class="form-control" name="repassword">
@@ -160,14 +146,10 @@
 									</div>
 								</div>					
 							</div>
-						  {{-- {{ csrf_field() }} --}}
-						</form>
+						{!! Form::close() !!}
 	        </div>
 	      </div>
 			</div>
-			
-			
-
 			@include('page.sidebar')
 		</div>
 
