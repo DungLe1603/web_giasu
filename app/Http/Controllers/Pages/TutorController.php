@@ -131,7 +131,6 @@ class TutorController extends Controller
     public function show($id)
     {
        $tutor = Tutor::findOrFail($id);
-       dd($tutor);
        return view('tutor\chitietgiasu', compact('tutor'));
     }
 
