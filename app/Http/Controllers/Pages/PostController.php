@@ -9,6 +9,16 @@ use App\Post;
 class PostController extends Controller
 {
     /**
+     * Instantiate a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth')->only('edit', 'update', 'destroy');
+    }
+    
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -104,7 +114,7 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        $post = Post::find($id);
+        $post = Post::findOrFail($id);
         return view('post\suabaidang', compact('post'));
     }
 
@@ -117,7 +127,7 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $editPost = Post::where('delete_flag', 0)->find($id);
+        $editPost = Post::where('delete_flag', 0)->findOrFail($id);
 
         $this->validate($request, [
             'parent_name' => 'required|min:3',
@@ -173,7 +183,7 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        $deletePost = Post::where('delete_flag', 0)->find($id);
+        $deletePost = Post::where('delete_flag', 0)->findOrFail($id);
         $deletePost->delete_flag = 1;
         if ($deletePost->save()) {
             session()->flash('success', 'Đã xóa thành công!');
