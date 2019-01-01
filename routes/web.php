@@ -45,6 +45,31 @@ Route::get('/introduce', [
     'uses' => 'Pages\IntroduceController@getIntroduction'
 ]);
 
+Route::get('/tutor-haichau', [
+    'as' => 'introduce-haichau',
+    'uses' => 'Pages\IntroduceController@getHaichau'
+]);
+
+Route::get('/tutor-thanhkhe', [
+    'as' => 'introduce-thanhkhe',
+    'uses' => 'Pages\IntroduceController@getThanhKhe'
+]);
+
+Route::get('/tutor-lienchieu', [
+    'as' => 'introduce-lienchieu',
+    'uses' => 'Pages\IntroduceController@getLienChieu'
+]);
+
+Route::get('/tutor-sontra', [
+    'as' => 'introduce-sontra',
+    'uses' => 'Pages\IntroduceController@getSonTra'
+]);
+
+Route::get('/tutor-nguhanhson', [
+    'as' => 'introduce-nguhanhson',
+    'uses' => 'Pages\IntroduceController@getNguHanhSon'
+]);
+
 Route::post('/password/{id}', 'Pages\TutorController@changePassword');
 
 Route::resource('post', 'Pages\PostController');

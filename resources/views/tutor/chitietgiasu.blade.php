@@ -18,6 +18,11 @@
 		<div class="row">
 			<!-- Blog Area -->
 			<div class="col-md-8">
+				@if($tutor->user['role']['name'] == 'Admin')
+					<div>
+						<h2 style="color: #666;">Rất tiếc, thông tin không tìm thấy!</h2>
+					</div>
+				@endif
 				@if($tutor->user['role']['name'] == 'User')
 				{{-- @dd($tutor);  --}}
 					<div class="row" style="margin-bottom:10px;">
