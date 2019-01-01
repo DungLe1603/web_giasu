@@ -14,6 +14,16 @@ use File, Input;
 class TutorController extends Controller
 {
     /**
+     * Instantiate a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth')->only('edit', 'update', 'destroy', 'changePassword');
+    }
+    
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -120,7 +130,8 @@ class TutorController extends Controller
      */
     public function show($id)
     {
-       $tutor = Tutor::find($id);
+       $tutor = Tutor::findOrFail($id);
+       dd($tutor);
        return view('tutor\chitietgiasu', compact('tutor'));
     }
 
@@ -132,7 +143,7 @@ class TutorController extends Controller
      */
     public function edit($id)
     {
-        $tutor = Tutor::find($id);
+        $tutor = Tutor::findOrFail($id);
         return view('tutor\chinhsuagiasu', compact('tutor'));
     }
 
@@ -145,7 +156,7 @@ class TutorController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $editTutor = Tutor::where('delete_flag', 0)->find($id);
+        $editTutor = Tutor::where('delete_flag', 0)->findOrFail($id);
 
         $this->validate($request, [
             'name' => 'required|min:3',
@@ -214,7 +225,7 @@ class TutorController extends Controller
     public function changePassword(Request $request, $id)
     {
 
-        $user = User::where('delete_flag', 0)->find($id);
+        $user = User::where('delete_flag', 0)->findOrFail($id);
         // dd(\Hash::check($request->password, $user->password));
         if (!Auth::user()->roleAdmin()) {
             $this->validate($request, [
@@ -265,7 +276,7 @@ class TutorController extends Controller
      */
     public function destroy($id)
     {
-        $deleteTutor = Tutor::where('delete_flag', 0)->find($id);
+        $deleteTutor = Tutor::where('delete_flag', 0)->findOrFail($id);
         $deleteTutor->user->delete_flag = 1;
         $deleteTutor->delete_flag = 1;
         if ( ($deleteTutor->save()) && ($deleteTutor->user->save()) ) {
