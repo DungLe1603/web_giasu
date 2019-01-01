@@ -1,6 +1,7 @@
 @extends('masterpage')
 @section('content')
 <link rel="stylesheet" type="text/css" href="{!! asset('css/style.css') !!}">
+<link rel="stylesheet" type="text/css" href="{!! asset('css/search_form.css') !!}">
 
 <div class="page-title-section">		
 	<div class="overlay">
@@ -18,6 +19,15 @@
 		<div class="row">
 			<!-- Blog Area -->
 			<div class="col-md-8">
+				<!--Search form Area-->
+				<div class="sidebar-widget" style="margin-right: 20px;">			
+					<form class="appointment-search" action="" method="get">
+						<input type="text" class="search_widget_input" name="s" id="s" placeholder="Tìm kiếm">
+		      	<button type="submit"><i class="fa fa-search"></i></button>
+					</form>
+				</div>
+				<!--Search form Area-->	
+
 			@if (session()->has('success'))
 			    <div id="alert-message">
 		        <strong class="alert-success">{{ session('success') }}</strong>

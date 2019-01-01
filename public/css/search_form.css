@@ -1,0 +1,25 @@
+  .appointment-search {
+    position: relative;
+  }
+  .appointment-search input[type=text] {
+    height: 33px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding: 0 45px;
+  }
+
+  .appointment-search button {
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 3px 10px;
+    background: #ddd;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+  }
+
+  .appointment-search button:hover {
+    background: #ccc;
+  }
+  
