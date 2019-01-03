@@ -16,6 +16,7 @@
 <div class="clearfix"></div><!-- Blog Section with Sidebar -->
 <div class="page-builder">
 	<div class="container">
+		@include('page.form_message')
 		@include('page.form-error')
 		<div class="row">
 			<!-- Blog Area -->

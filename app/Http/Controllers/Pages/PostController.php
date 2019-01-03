@@ -88,10 +88,11 @@ class PostController extends Controller
         $createPost->payment = $request->payment;
         $createPost->requirement = $request->requirement;
         if ($createPost->save()) {
-            session()->flash('success', 'Đăng bài thành công!');
+            session()->flash('message', 'Đăng bài thành công!');
             return redirect('post');
         } else {
-            echo "Thêm suất dạy thất bại";
+            session()->flash('message', 'Đăng bài thất bại!');
+            return redirect('post');
         }
     }
 
@@ -168,10 +169,11 @@ class PostController extends Controller
         $editPost->payment = $request->payment;
         $editPost->requirement = $request->requirement;
         if ($editPost->save()) {
-            session()->flash('success', 'Chỉnh sửa thành công!');
+            session()->flash('message', 'Chỉnh sửa thành công!');
             return redirect('post');
         } else {
-            echo "Chỉnh sửa suất dạy thất bại";
+            session()->flash('message', 'Chỉnh sửa thất bại!');
+            return redirect('post');
         }
     }
 
@@ -186,10 +188,11 @@ class PostController extends Controller
         $deletePost = Post::where('delete_flag', 0)->findOrFail($id);
         $deletePost->delete_flag = 1;
         if ($deletePost->save()) {
-            session()->flash('success', 'Đã xóa thành công!');
+            session()->flash('message', 'Đã xóa thành công!');
             return redirect('post');
         } else {
-            echo "Xóa thất bại";
+            session()->flash('message', 'Xóa thất bại!');
+            return redirect('post');
         }
     }
 }
