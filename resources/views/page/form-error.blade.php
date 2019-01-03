@@ -11,6 +11,6 @@
   <script type="text/javascript">
     setTimeout(function(){
       document.getElementById("alert-message").innerHTML = '';
-    }, 2000);
+    }, 5000);
   </script>
 @endif

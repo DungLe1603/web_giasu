@@ -64,7 +64,8 @@ class TutorController extends Controller
             'school' => 'required|min:3',
             'subject' => 'required|min:3',
             'time' => 'required|min:3',
-            'salary' => 'required|min:3',
+            // 'salary' => 'required|min:3',
+            'username' => 'required|min:3|unique:users'
 
         ], [
             'name.required' => 'Vui lòng nhập họ và tên',
@@ -88,8 +89,11 @@ class TutorController extends Controller
             'subject.min' => 'Vui lòng nhập lại môn học ',
             'time.required' => 'Vui lòng nhập họ và tên',
             'time.min' => 'Nhập thời gian sai',
-            'salary.required' => 'Vui lòng nhập thời gian', 
-            'salary.min' => 'Nhập lương sai',
+            // 'salary.required' => 'Vui lòng nhập thời gian', 
+            // 'salary.min' => 'Nhập lương sai',
+            'username.required' => 'Vui lòng nhập tên đăng nhập',
+            'username.min' => 'Vui lòng nhập tên đăng nhập ít nhất 3 kí tự',
+            'username.unique' => 'Tên đăng nhập đã tồn tại, vui lòng chọn tên khác',
         ]);
 
 
@@ -105,20 +109,23 @@ class TutorController extends Controller
         $tutors->time = $request->time;
         $tutors->salary = $request->salary;
 
-        $file_name = $request->file('filename')->getClientOriginalName();
-        $file = $request->file('filename');
-        $file->move('images', $file_name);
-        $tutors->picture = $file_name;
+        if ($request->filename) {
+                $file_name = $request->file('filename')->getClientOriginalName();
+                $file = $request->file('filename');
+                $file->move('images', $file_name);
+                $editTutor->picture = $file_name;
+            }
 
         $user = new User();
         $user->username = $request->username;
         $user->password = bcrypt($request->password);
         
         if ($tutors->save() && $user->save()) { 
-            session()->flash('success', 'Đăng ký gia sư thành công!');
+            session()->flash('message', 'Đăng ký gia sư thành công!');
            return redirect('tutor');
         } else{
-            echo "fail";
+            session()->flash('message', 'Đăng ký gia sư thất bại!');
+           return redirect('tutor.create');
         }
     }
 
@@ -165,7 +172,7 @@ class TutorController extends Controller
             'level' => 'required|min:3|max:80',
             'subject' => 'required|min:3',
             'time' => 'required|min:3',
-            'salary' => 'required|min:3',
+            // 'salary' => 'required|min:3',
 
         ], [
             'name.required' => 'Vui lòng nhập họ và tên',
@@ -184,8 +191,8 @@ class TutorController extends Controller
             'subject.min' => 'Vui lòng nhập lại môn học ',
             'time.required' => 'Vui lòng nhập họ và tên',
             'time.min' => 'Nhập thời gian sai',
-            'salary.required' => 'Vui lòng nhập thời gian', 
-            'salary.min' => 'Nhập lương sai',
+            // 'salary.required' => 'Vui lòng nhập thời gian', 
+            // 'salary.min' => 'Nhập lương sai',
         ]);
 
         $editTutor->name = $request->name;
@@ -207,10 +214,11 @@ class TutorController extends Controller
         }
 
         if ($editTutor->save()) { 
-            session()->flash('success', 'Chỉnh sửa thành công!');
+            session()->flash('message', 'Chỉnh sửa thành công!');
             return redirect('tutor');
         } else {
-            echo "Chỉnh sửa thất bại";
+            session()->flash('message', 'Chỉnh sửa thất bại!');
+            return redirect('tutor');
         }
     }
 
@@ -225,8 +233,7 @@ class TutorController extends Controller
     {
 
         $user = User::where('delete_flag', 0)->findOrFail($id);
-        // dd(\Hash::check($request->password, $user->password));
-        if (!Auth::user()->roleAdmin()) {
+        if((!Auth::user()->roleAdmin()) || (Auth::user()->id == $id)) {
             $this->validate($request, [
 
                 'oldpassword' => 'required|min:3|max:50',
@@ -258,13 +265,17 @@ class TutorController extends Controller
                 'repassword.same' => 'Xác nhận mật khẩu không đúng',
             ]);
         }
-        
+        if (!\Hash::check($request->oldpassword, $user->password)) {
+            session()->flash('message', 'Mật khẩu cũ không chính xác!');
+            return redirect()->route('tutor.edit', $id);
+        }
         $user->password = bcrypt($request->password);
         if ($user->save()) {
-            session()->flash('success', 'Đổi mật khẩu thành công!');
+            session()->flash('message', 'Đổi mật khẩu thành công!');
             return redirect('tutor');
         } else {
-            echo "Đổi mật khẩu thất bại";
+            session()->flash('message', 'Đổi mật khẩu thất bại!');
+            return redirect('tutor.edit');
         }
     }
     /**
@@ -279,10 +290,11 @@ class TutorController extends Controller
         $deleteTutor->user->delete_flag = 1;
         $deleteTutor->delete_flag = 1;
         if ( ($deleteTutor->save()) && ($deleteTutor->user->save()) ) {
-            session()->flash('success', 'Đã xóa thành công!');
+            session()->flash('message', 'Đã xóa thành công!');
             return redirect('tutor');
         } else {
-            echo "Xóa thất bại";
+            session()->flash('message', 'Xóa thẩt bại!');
+            return redirect('tutor');
         }
     }
 }

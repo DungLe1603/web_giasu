@@ -26,6 +26,7 @@
 	        <li class="tab-item">|</li>
 	        <li role="presentation" class="tab-item"><a class="tab-link" href="#password" aria-controls="password" role="tab" data-toggle="tab">Đổi mật khẩu</a></li>
 	      </ul>
+	      @include('page.form_message')
 	      @include('page.form-error')
 	      <div class="tab-content">
 	        <div role="tabpanel" class="tab-pane active" id="profile">
@@ -125,7 +126,7 @@
 								<div class="col-md-2"></div>
 								<div class="col-md-8">
 									<h4><strong class="text-uppercase"></strong></h4>
-										@if(!Auth::user()->roleAdmin())
+										@if((!Auth::user()->roleAdmin()) || (Auth::user()->id == $tutor->id))
 											<div class="form-group">
 							    			<label for="password">Mật khẩu cũ:</label>
 							    			<input type="password" class="form-control" name="oldpassword">
